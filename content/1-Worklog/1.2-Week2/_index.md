@@ -1,81 +1,67 @@
 ---
-title: "Week 2 Worklog"
-date: 2026-04-24
-weight: 1
+title: "Worklog Week 2"
+date: 2026-05-01
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-### Week 2 Objectives:
+### Objectives
 
-* Master basic networking concepts in AWS via VPC.
-* Understand and practice deploying virtual servers with AWS EC2.
-* Learn how to grant permissions to applications using IAM Roles.
-* Get familiar with the cloud development environment using AWS Cloud9.
-* Deploy a static website using AWS S3 and optimize with CDN.
-* Understand the operation and use of databases with AWS RDS.
-
----
-
-### Tasks to be implemented this week:
-
-| Day | Task | Start Date | Completion Date | Resources |
-|-----|----------|--------------|----------------|----------------|
-| 2 | - Research AWS Networking <br> - VPC, Subnet, and Security Group concepts <br> - Learn about Site-to-Site VPN | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 3 | - EC2 Practice: <br>&emsp; + Create Linux & Windows instances <br>&emsp; + SSH/RDP connection <br>&emsp; + Deploy Node.js application | 25/04/2026 | 25/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 4 | - Research IAM Role for EC2 <br> - Compare Access Key and Role <br> - Practice assigning Roles to EC2 | 26/04/2026 | 26/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 5 | - Use AWS Cloud9: <br>&emsp; + Create dev environment <br>&emsp; + Use CLI directly on the cloud | 27/04/2026 | 27/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 6 | - Hosting static website with AWS S3 <br> - Configure public access <br> - Integrate AWS CloudFront for acceleration | 28/04/2026 | 28/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 7 | - Research AWS RDS <br> - Create database instance <br> - Connect EC2 to RDS <br> - Backup & Restore | 29/04/2026 | 29/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+- Learn core Amazon Web Services used for cloud application deployment.
+- Learn how to deploy and manage virtual servers using Amazon EC2.
+- Learn access management with IAM Roles for EC2.
+- Become familiar with the AWS Cloud9 development environment and AWS CLI.
+- Practice deploying applications on the AWS Cloud platform.
 
 ---
 
-### Week 2 Achievements:
+### Weekly Tasks
 
-* Understood the networking architecture in AWS:
-  * VPC and Subnet concepts  
-  * Security Groups and firewall mechanisms  
-  * How to connect systems across networks  
-
-* Successfully practiced with AWS EC2:
-  * Creating and managing instances (Linux & Windows)  
-  * Connecting via SSH and Remote Desktop  
-  * Deploying a Node.js application on the server  
-
-* Understood and applied IAM Roles:
-  * Differentiating between Access Keys and Roles  
-  * Assigning Roles to EC2 for secure AWS resource access  
-  * Applying security principles (no hardcoded keys)  
-
-* Familiarized with the AWS Cloud9 development environment:
-  * Creating cloud-based programming environments  
-  * Using AWS CLI directly  
-  * Managing code and quick testing in the AWS environment  
-
-* Deployed static websites with AWS S3:
-  * Configuring Static Website Hosting  
-  * Setting up public access permissions  
-  * Using AWS CloudFront to accelerate access  
-  * Understanding content delivery mechanisms via CDN  
-
-* Worked with AWS RDS databases:
-  * Creating database instances  
-  * Connecting applications from EC2  
-  * Performing data backup and restore  
+| Day       | Tasks                                                                                                                                 | Start Date | Completion Date | Reference                               |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
+| Monday    | - Learn Amazon EC2 <br> - Launch Linux and Windows instances <br> - Connect via SSH and Remote Desktop                                | 27/04/2026 | 27/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Tuesday   | - Deploy a Node.js application on Amazon EC2 <br> - Learn EC2 fundamentals <br> - Practice managing EC2 instances                     | 28/04/2026 | 28/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Wednesday | - Learn IAM Roles for EC2 <br> - Compare Access Keys and IAM Roles <br> - Attach an IAM Role to an EC2 instance                       | 29/04/2026 | 29/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Thursday  | - Create a development environment with AWS Cloud9 <br> - Practice using AWS CLI <br> - Manage AWS resources through the command line | 30/04/2026 | 30/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Friday    | - Review the topics learned <br> - Practice EC2, IAM Roles, and Cloud9 again <br> - Summarize notes and key concepts                  | 01/05/2026 | 01/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 
-### Self-evaluation:
+### Achievements
 
-* Fully completed all critical labs on Networking, Compute, Storage, and Database.
-* Capable of deploying a basic web system on AWS including:
-  * Frontend (S3 + CloudFront)  
-  * Backend (EC2)  
-  * Database (RDS)  
+- Practiced core AWS services related to virtual machines, access management, and cloud development environments.
 
-* Gained a deeper understanding of how AWS services integrate in practice.
-* Recognized the importance of security (IAM Roles, Security Groups), performance (CloudFront), and system architecture.
-* Need to continue practicing with real-world system architectures and cost optimization.
+- Practiced Amazon EC2:
+  - Launched Linux instances
+  - Launched Windows instances
+  - Connected using SSH and Remote Desktop
+  - Deployed a Node.js application on AWS
+
+- Learned IAM Roles for EC2:
+  - Understood the differences between Access Keys and IAM Roles
+  - Attached IAM Roles to EC2 instances
+  - Learned how to securely grant AWS resource permissions
+
+- Became familiar with AWS Cloud9:
+  - Created a cloud development environment
+  - Used AWS CLI
+  - Managed and checked AWS resources directly from the cloud
+
+- Learned more about application deployment and AWS resource management.
 
 ---
 
+### Self-evaluation
+
+- Successfully completed all practical exercises on Amazon EC2, IAM Roles, and AWS Cloud9.
+
+- Learned more about deploying applications in the cloud.
+
+- Learned how to launch, configure, and manage Amazon EC2 instances.
+
+- Learned how to use IAM Roles instead of Access Keys for secure access management.
+
+- Will continue learning AWS storage, database services, and cloud architecture in the following weeks.
+
+---

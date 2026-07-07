@@ -1,79 +1,82 @@
 ---
-title: "Week 1 Worklog"
+title: "Worklog Week 1"
 date: 2026-04-24
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### Week 1 Objectives:
+### Objectives
 
-* Get acquainted with the internship environment and members of the First Cloud Journey program.
-* Gain a general overview of Cloud Computing and the AWS platform.
-* Understand how to create an AWS account and initial configuration steps.
-* Learn how to manage costs to avoid unexpected charges.
-* Understand the mechanism of permission and access management with AWS IAM.
-
----
-
-### Tasks to be implemented this week:
-
-| Day | Task | Start Date | Completion Date | Resources |
-|-----|----------|--------------|----------------|----------------|
-| 2 | - Get acquainted with FCJ members <br> - Read and understand internship rules <br> - Learn about workflow and reporting requirements | 17/04/2026 | 17/04/2026 | |
-| 3 | - Create a new AWS Free Tier account <br> - Explore the AWS Management Console <br> - Familiarize with the interface of core services | 18/04/2026 | 18/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 4 | - Set up AWS Budgets <br> - Configure cost alerts via email <br> - Learn about factors affecting costs | 19/04/2026 | 19/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 5 | - Learn about AWS Support <br> - Support plans (Basic, Developer, Business, Enterprise) <br> - Practice creating a sample support case | 20/04/2026 | 20/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 6 | - Learn about IAM: User, Group, Role, Policy <br> - Practice creating users and assigning permissions <br> - Understand the Least Privilege principle | 21/04/2026 | 21/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+- Get familiar with the internship environment and members of the First Cloud Journey (FCAJ) program.
+- Learn the fundamentals of Cloud Computing and the AWS platform.
+- Learn how to create an AWS Free Tier account and complete the initial setup.
+- Learn basic cost management to avoid unexpected charges.
+- Learn the basics of access control and permission management with AWS IAM.
 
 ---
 
-### Week 1 Achievements:
+### Weekly Tasks
 
-* Understood basic concepts of cloud computing and the role of AWS in providing IT infrastructure.
-
-* Mastered the AWS Global Infrastructure structure, including:
-  * Regions  
-  * Availability Zones  
-  * Edge Locations  
-
-* Successfully created an AWS Free Tier account and completed initial configuration:
-  * Account verification  
-  * Configuration of billing information  
-  * Accessing AWS Management Console  
-
-* Familiarized with the AWS Management Console:
-  * Knowing how to search for services  
-  * Understanding how to navigate between services  
-  * Identifying the resource management interface  
-
-* Set up cost management with AWS Budgets:
-  * Creating monthly budgets  
-  * Configuring alerts when costs exceed thresholds  
-  * Understanding the importance of cost control when using cloud services  
-
-* Learned about AWS Support:
-  * Differentiating between different support plans  
-  * Understanding the process of creating and handling support cases  
-  * Knowing when to use support services  
-
-* Mastered the access management mechanism with AWS IAM:
-  * Creating IAM Users for individuals  
-  * Assigning permissions via Policies  
-  * Organizing users into Groups  
-  * Understanding the role of Roles in the system  
-
-* Realized the importance of security and permission management in a cloud system.
+| Day       | Tasks                                                                                                                                                     | Start Date | Completion Date | Reference                               |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
+| Monday    | - Meet FCAJ members <br> - Read the internship regulations <br> - Learn the internship workflow and reporting requirements                                | 20/04/2026 | 20/04/2026      |                                         |
+| Tuesday   | - Create an AWS Free Tier account <br> - Explore AWS Management Console <br> - Get familiar with the AWS service interface                                | 21/04/2026 | 21/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Wednesday | - Configure AWS Budgets <br> - Set up email cost alerts <br> - Learn factors affecting AWS costs                                                          | 22/04/2026 | 22/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Thursday  | - Learn about AWS Support <br> - Explore support plans (Basic, Developer, Business, Enterprise) <br> - Practice creating a support case                   | 23/04/2026 | 23/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Friday    | - Learn AWS IAM: User, Group, Role, and Policy <br> - Practice creating IAM Users and assigning permissions <br> - Learn the Principle of Least Privilege | 24/04/2026 | 24/04/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 
-### Self-evaluation:
+### Achievements
 
-* Fully completed all basic contents in the first week, including accounts, costs, and security.
-* Gained a general overview of the AWS ecosystem and how the cloud platform operates.
-* Able to perform basic operations on the AWS Console and initially understand how to manage resources.
-* Recognized the importance of cost control and proper permission management during AWS usage.
-* Need to continue improving practical skills and dive deeper into core services like EC2, S3, VPC in the following weeks.
+- Learned the basic concepts of Cloud Computing and the role of AWS in providing cloud infrastructure.
+
+- Learned the AWS Global Infrastructure, including:
+  - Region
+  - Availability Zone
+  - Edge Location
+
+- Successfully created an AWS Free Tier account and completed the initial setup:
+  - Account verification
+  - Billing configuration
+  - Access to AWS Management Console
+
+- Became familiar with AWS Management Console:
+  - Search for AWS services
+  - Navigate between AWS services
+  - Perform basic resource management
+
+- Practiced AWS Budgets:
+  - Created a monthly budget
+  - Configured budget alert notifications
+  - Learned the importance of cost management when using AWS services
+
+- Learned about AWS Support:
+  - Explored different support plans
+  - Learned how to create a support case
+  - Understood when to request AWS support
+
+- Learned AWS Identity and Access Management (IAM):
+  - Created IAM Users
+  - Assigned permissions using IAM Policies
+  - Managed users with IAM Groups
+  - Learned the purpose of IAM Roles
+
+- Gained a better understanding of security and permission management in AWS.
 
 ---
 
+### Self-evaluation
+
+- Successfully completed all fundamental topics in the first week, including AWS account setup, cost management, and IAM.
+
+- Became familiar with the AWS environment and AWS Management Console.
+
+- Learned how to perform basic operations on AWS.
+
+- Understood the importance of cost control and access management when using AWS services.
+
+- Will continue learning and practicing core AWS services such as Amazon EC2, Amazon S3, and Amazon VPC in the following weeks.
+
+---

@@ -1,39 +1,41 @@
 ---
 title: "Worklog"
-date: 2024-01-01
+date: 2026-04-24
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+## Introduction
 
-**On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
+This worklog records the entire internship journey throughout the **12-week First Cloud Journey (FCAJ)** program. It summarizes the completed tasks, AWS hands-on labs, group project development, company internship activities, FCAJ meetings, and the preparation of workshop materials and internship reports.
 
-Typically, and as a standard, a worklog is carried out over about 3 months (throughout the internship period) with weekly contents as follows:
+Throughout the program, I gained practical experience with **Amazon Web Services (AWS)**, strengthened my cloud computing knowledge, improved teamwork and project development skills, and learned how to design, deploy, and manage cloud-based applications.
 
-**Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
+---
 
-**Week 2:** [Doing task A...](1.2-week2/)
+## Weekly Summary
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 1:** [Introduction to AWS, AWS Free Tier, AWS Budgets, AWS Support, and IAM](1.1-week1/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 2:** [Hands-on with Amazon EC2, IAM Roles for EC2, AWS Cloud9, and AWS CLI](1.2-week2/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 3:** [Static Website Hosting with Amazon S3, Amazon RDS, CloudFront, Lightsail Containers, Auto Scaling, CloudWatch, Route 53, and DynamoDB](1.3-week3/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 4:** [Exploring CloudFront, AWS Networking Workshop, Migration Services, and Cloud Architecture](1.4-week4/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+**Week 5:** [Designing the Group Project Architecture and Continuing Project Development](1.5-week5/)
 
-**Week 8:** [Doing task H...](1.8-week8/)
+**Week 6:** [Participating in the First Cloud Journey Meeting and Continuing Project Development](1.6-week6/)
 
-**Week 9:** [Doing task I...](1.9-week9/)
+**Week 7:** [Company Internship, FCAJ Community Meeting, and Workshop Documentation](1.7-week7/)
 
-**Week 10:** [Doing task L...](1.10-week10/)
+**Week 8:** [Completing Project Features, Deployment Architecture, and Progress Reports](1.8-week8/)
 
-**Week 11:** [Doing task M...](1.11-week11/)
+**Week 9:** [System Testing, Performance Optimization, and Technical Documentation](1.9-week9/)
 
-**Week 12:** [Doing task N...](1.12-week12/)
+**Week 10:** [Finalizing the Project, System Testing, Resource Optimization, and Presentation Preparation](1.10-week10/)
+
+**Week 11:** [Project Review, Final Testing, Deployment, and System Validation](1.11-week11/)
+
+**Week 12:** [Completing the Internship Report, Workshop Documentation, and First Cloud Journey (FCAJ) Report Template](1.12-week12/)

@@ -1,57 +1,52 @@
 ---
-title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+title: "Worklog Week 11"
+date: 2026-07-03
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Continue improving the project according to the development plan.
+- Test the system and resolve the remaining issues.
+- Complete the final project features.
+- Prepare the application for deployment.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Tasks Completed This Week:
 
-### Week 11 Achievements:
+| Day | Task                                                                                | Start Date | Completion Date | Reference |
+| --- | ----------------------------------------------------------------------------------- | ---------- | --------------- | --------- |
+| Mon | - Discuss project progress with team members remotely <br> - Update project status  | 29/06/2026 | 29/06/2026      |           |
+| Tue | - Review project features <br> - Perform full system testing                        | 30/06/2026 | 30/06/2026      |           |
+| Wed | - Resolve the remaining issues <br> - Re-test completed features                    | 01/07/2026 | 01/07/2026      |           |
+| Thu | - Complete the final project features <br> - Prepare the application for deployment | 02/07/2026 | 02/07/2026      |           |
+| Fri | - Deploy the application <br> - Verify the system after deployment                  | 03/07/2026 | 03/07/2026      |           |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Results Achieved:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Continued project development while coordinating remotely with team members.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Reviewed all project features, performed full system testing, and resolved the remaining issues.
 
-* Used AWS CLI to perform basic operations such as:
+- Completed the final project features.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Successfully deployed the application and verified that the system operated correctly after deployment.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+---
+
+### Self-Evaluation:
+
+- Successfully completed all planned tasks for the week.
+
+- Gained more experience in application deployment and post-deployment verification.
+
+- Improved remote collaboration and troubleshooting skills.
+
+- Ready to finalize the internship report and complete the internship program.
+
+---

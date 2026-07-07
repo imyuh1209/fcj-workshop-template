@@ -1,57 +1,50 @@
 ---
-title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 5"
+date: 2026-05-22
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Assign tasks and design the overall architecture for the team project.
+- Learn how to optimize application performance using Amazon CloudFront.
+- Continue developing and improving the project.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Tasks Completed This Week:
 
-### Week 5 Achievements:
+| Day | Task                                                                                                                   | Start Date | Completion Date | Reference                               |
+| --- | ---------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
+| Mon | - Team meeting <br> - Assign project tasks <br> - Design the overall project architecture                              | 18/05/2026 | 18/05/2026      |                                         |
+| Wed | - Learn performance optimization with Amazon CloudFront <br> - Apply optimization concepts to the project architecture | 20/05/2026 | 20/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Continue developing project features <br> - Test and fix issues during development                                   | 21/05/2026 | 21/05/2026      |                                         |
+| Fri | - Summarize implementation results <br> - Update project documentation and prepare the next development plan           | 22/05/2026 | 22/05/2026      |                                         |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Results Achieved:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Completed task assignment and designed the overall architecture for the team project.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Learned about Amazon CloudFront and gained a better understanding of application performance optimization.
 
-* Used AWS CLI to perform basic operations such as:
+- Continued developing the project and resolved several issues encountered during implementation.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Summarized the development progress and prepared for the next stage of the project.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+---
+
+### Self-Evaluation:
+
+- Completed all planned tasks for the week.
+
+- Gained more knowledge about designing system architecture and optimizing application performance on AWS.
+
+- Collaborated effectively with team members throughout the project development process.
+
+- Will continue improving project features and documentation in the upcoming weeks.
+
+---

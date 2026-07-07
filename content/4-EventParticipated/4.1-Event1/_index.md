@@ -1,126 +1,109 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: "Saturday Meet up"
+date: 2026-05-30
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Report "Saturday Meet up"
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+## Event Information
 
-### Event Objectives
+- **Event Name:** Saturday Meet up
+- **Time:** 09:00 - 12:00, 30/05/2026
+- **Location:** Floor 26, Bitexco Financial Tower
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+## Event Introduction
 
-### Speakers
+Saturday Meet up is a sharing event that provides an opportunity for participants to connect, exchange knowledge, skills, and practical experiences during their learning and working journey.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+Through presentations from different speakers, participants can gain insights into various topics related to technology, personal development, project experiences, and real-world working practices.
 
-### Key Highlights
+Besides joining as an audience member, participants are also encouraged to share their own knowledge, experiences, and learning journeys with the community.
 
-#### Identifying the drawbacks of legacy application architecture
+---
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+## Sharing Topics
 
-#### Transitioning to modern application architecture – Microservices
+### 1. Level up your AWS Skills with Cloud Quest and Floci
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+**Speaker:** Huynh Thai Linh  
+**Program:** First Cloud Journey (FCAJ)
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+The presentation introduced learning platforms that support AWS skill improvement, including AWS Cloud Quest and Floci.
 
-#### Domain-Driven Design (DDD)
+---
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+### 2. Introduction to Hackathon
 
-#### Event-Driven Architecture
+**Team:** The Ballers
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+**Members:**
 
-#### Compute Evolution
+- Huynh An Khuong
+- Mai Quoc Anh
+- Nguyen Tran Minh Quan
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+The presentation introduced the Hackathon participation process, including idea development, teamwork coordination, and experiences gained during project implementation.
 
-#### Amazon Q Developer
+---
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+### 3. Why We Always Need Confidence
 
-### Key Takeaways
+**Speaker:** Nguyen Thi Quynh Nhu
 
-#### Design Mindset
+The presentation focused on the importance of confidence in learning, working, communication, and personal development.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+---
 
-#### Technical Architecture
+### 4. Introduction to Tử Vi Đại Việt Website
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+**Website:** https://tuvidaiviet.com/
 
-#### Modernization Strategy
+The presentation introduced the astrology website product, its development process, and experiences gained from building a real-world application.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+---
 
-### Applying to Work
+### 5. The Hidden Iceberg of the Project: DevOps Before Disaster
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+**Speaker:** Tran Minh Quan
 
-### Event Experience
+The presentation discussed the important role of DevOps in project development, especially preparing processes, tools, and operational strategies to minimize risks when system issues occur.
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+---
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+### 6. The Iceberg of Procrastination
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+**Speaker:** Not specified
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+The presentation focused on procrastination in learning and working, including hidden causes behind procrastination and methods to improve personal productivity.
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+---
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+## Knowledge and Experience Gained
 
-#### Some event photos
-*Add your event photos here*  
+After participating in Saturday Meet up, I gained valuable knowledge and practical perspectives from different speakers.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+- Learned more about AWS learning platforms such as Cloud Quest and Floci, which support the process of improving cloud skills.
+- Learned about Hackathon participation experiences, idea development, and teamwork approaches.
+- Recognized the importance of confidence in learning, communication, and career development.
+- Gained more understanding of building a real-world product through the introduction of the Tử Vi Đại Việt website.
+- Understood the importance of DevOps in system preparation, deployment, and operation.
+- Learned about the impact of procrastination and ways to improve time management skills.
+
+---
+
+## Experience from the Event
+
+Participating in Saturday Meet up was a valuable experience that allowed me to connect with community members and gain practical knowledge from people with different backgrounds.
+
+The presentations were not only focused on technical knowledge but also covered soft skills, personal development mindset, and real working experiences.
+
+Especially, topics related to AWS, DevOps, and project development provided me with additional perspectives during the implementation of my current group project. I also gained a better understanding of the important factors required to build and operate an effective system.
+
+---
+
+## Event Photos
+
+![Saturday Meet up](/images/4-events/event1.jpg)

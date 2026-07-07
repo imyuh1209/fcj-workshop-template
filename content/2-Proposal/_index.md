@@ -5,111 +5,106 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+# AuraAcademic
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+## AI-Powered Proctoring & Exam Platform on AWS
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+
+AuraAcademic is an online examination platform integrated with AI proctoring designed to ensure fairness and transparency for remote exams. The system utilizes the YOLOv8 model for real-time cheating detection via camera streams. By combining an AWS cloud-native architecture (CloudFront, ECS Fargate, EC2 GPU Spot) with managed services, AuraAcademic provides an automated, low-latency monitoring solution while optimizing operational costs (reducing infrastructure costs by up to 70% using Spot Instances) for educational institutions.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+**What’s the Problem?**
+Current online examination platforms lack effective automated proctoring mechanisms, making cheating easy. Existing AI proctoring solutions in the market (e.g., ProctorU, Respondus) often come with expensive licensing fees, complex integration processes, and demand massive bandwidth or server resources.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+**The Solution**
+AuraAcademic solves this by building a comprehensive system:
+
+- **Frontend (Next.js):** Statically hosted on Amazon S3 and distributed globally via CloudFront for a smooth experience.
+- **Backend Core API (Spring Boot):** Runs on ECS Fargate Spot to handle exam logic, submissions, and authentication.
+- **AI Proctoring (FastAPI + YOLOv8):** Hosted on an EC2 GPU instance (G4dn) to process real-time WebSockets streams from students, detecting anomalies like looking away, multiple people, or leaving the frame.
+- **Video Evidence:** Directly uploaded to S3 via VPC Endpoints for secure storage of violation evidence.
+- **Security & Authentication:** Managed by Amazon Cognito, AWS WAF, IAM, and Secrets Manager.
+
+**Benefits and Return on Investment (ROI)**
+The system automates the proctoring process, reducing the need for manual invigilators. By leveraging Spot Instances for both ECS Fargate and EC2 GPU, the system cuts infrastructure costs by up to 70% compared to On-Demand pricing. The total cost to maintain the system at a testing/small scale is only around $26 - $30 USD/month. This solution enables schools and educational organizations to adopt advanced proctoring technology affordably, enhancing the credibility of their online exams.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+AuraAcademic employs a microservices architecture on AWS, strictly separating the Core API from AI Processing.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+**AWS Services Used**
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- **Amazon S3 & CloudFront**: Hosts and distributes the Next.js frontend globally, and stores video evidence.
+- **Amazon Cognito**: Manages user authentication via JWT.
+- **ALB (Application Load Balancer)**: Routes REST API requests to ECS and WebSockets traffic to the EC2 GPU instance.
+- **Amazon ECS (Fargate Spot)**: Runs the Spring Boot Backend container.
+- **Amazon EC2 (G4dn Spot)**: Runs FastAPI and the YOLOv8 model for real-time video processing.
+- **AWS SQS & Lambda**: Handles asynchronous (Event-Driven) exam extraction to reduce load on the Backend.
+- **AWS WAF & Secrets Manager**: Web application firewall and secure secret storage.
+- **Amazon SES**: Sends email notifications and OTPs.
+- **VPC, NAT Instance & Endpoints**: Secures the internal network and optimizes S3 uploads and CloudWatch logs with minimal data transfer costs.
+- **External Services**: MongoDB Atlas (Database) and Google Gemini API (Automated Question Generation).
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+**Component Design**
+
+- **Web Interface**: Students take exams and stream their cameras; Teachers manage exams and review violation reports.
+- **Core API**: Handles exam logic, pushes messages to SQS for AI question extraction, and stores results.
+- **AI Engine**: Receives camera streams via WebSockets, detects cheating using YOLOv8, and automatically uploads violation videos to S3.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+
+**Implementation Phases (3-Month Internship Project)**
+
+- **Month 1 (Initiation & Design):** Analyze VPC architecture, design the MongoDB database schema, prepare the YOLOv8 model, and define basic Event-Driven flows.
+- **Month 2 (Backend & AI Development):** Program the Spring Boot API, configure SQS + Lambda for exam extraction, and build FastAPI for WebSockets processing.
+- **Month 3 (Completion & Deployment):** Build the Next.js interface, deploy the system to AWS (S3, CloudFront, ECS, EC2 Spot), conduct testing, and finalize the internship report.
 
 **Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+
+- **Frontend**: Next.js, WebSockets client, browser-based recording.
+- **Backend**: Spring Boot, Spring Security, MongoDB Atlas integration.
+- **AI**: FastAPI, OpenCV, YOLOv8 object detection, video streaming processing.
+- **DevOps/AWS**: Docker, VPC (Public/Private Subnets, NAT Instance, VPC Endpoints), SQS, Lambda.
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+
+- **Weeks 1-2**: Finalize system design, UI/UX, and set up code repositories.
+- **Weeks 3-5**: Develop core features (Exam Management) and SQS + Lambda integration for Gemini extraction.
+- **Weeks 6-9**: Integrate real-time YOLOv8 AI for camera stream analysis via WebSockets.
+- **Weeks 10-12**: Deploy to AWS, test Spot Instance fault-tolerance, and complete the final internship report.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+Utilizing a cost-optimized model with Spot Instances, estimated for a Testing/Small Scale environment (~100 concurrent students):
 
-Total: $0.7/month, $8.40/12 months
+- **Frontend (S3 + CloudFront):** ~$0.00 USD/month (Free Tier).
+- **ECS Fargate Spot (Backend):** ~$4.00 - $6.00 USD/month.
+- **EC2 GPU Spot (AI Engine - g4dn.xlarge):** ~$3.00 USD/month (running only during exams, ~$0.15/hour).
+- **NAT Instance (t4g.nano):** ~$2.50 USD/month.
+- **Application Load Balancer (ALB):** ~$16.00 USD/month.
+- **MongoDB Atlas:** ~$0.00 USD/month (M0 Free Tier).
+- **VPC Endpoints, SES & Others:** ~$2.00 USD/month.
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+**Total Estimation:** Approximately $28.00 - $30.00 USD/month.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+**Risk Matrix**
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- **Sudden Spot Instance Termination**: High impact, medium probability. (AWS can reclaim Spot instances at any time).
+- **High Camera Network Latency**: Medium impact, high probability (Depends on the student's internet connection).
+- **Billing Overage**: Medium impact, low probability (If EC2 GPU is left running).
+
+**Mitigation Strategies**
+
+- **Spot Instances**: Configure Auto Scaling groups or use scripts to automatically fallback to On-Demand instances if Spot capacity is unavailable.
+- **Latency**: Optimize video resolution sent to the server (e.g., 480p instead of 1080p) and compress video before transmission.
+- **Costs**: Set up AWS Budgets Alarms to trigger email notifications when costs exceed $10 and $20.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+
+- **Technical Improvements:** Delivers an automated, real-time AI proctoring solution with a highly available Cloud-Native architecture, optimizing bandwidth via WebSockets.
+- **Long-term Value:** The platform can be packaged as a SaaS solution for universities and training centers, solving the online cheating problem with significantly lower operational costs than existing alternatives.

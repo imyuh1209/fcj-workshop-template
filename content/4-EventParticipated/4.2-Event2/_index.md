@@ -1,126 +1,153 @@
 ---
-title: "Event 2"
-date: 2024-01-01
-weight: 1
+title: "Saturday Meet up"
+date: 2026-06-06
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Report "Saturday Meet up"
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+## Event Information
 
-### Event Objectives
+- **Event Name:** Saturday Meet up
+- **Time:** 09:00 - 12:00, June 06, 2026
+- **Location:** Floor 26, Bitexco Financial Tower
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+---
 
-### Speakers
+## Event Introduction
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+Saturday Meet up is a sharing event that provides an opportunity for participants to connect, exchange knowledge, skills, and practical experiences from speakers.
 
-### Key Highlights
+Through various presentations covering topics such as technology, system development, cybersecurity, teamwork, and career development, participants can gain practical knowledge to support their learning process and personal growth.
 
-#### Identifying the drawbacks of legacy application architecture
+Besides joining as an audience member, the event also encourages participants to share their own knowledge, experiences, and learning journeys with the community.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+---
 
-#### Transitioning to modern application architecture – Microservices
+## Event Objectives
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Create an environment for networking, communication, and experience sharing among participants.
+- Update knowledge about new technologies and current trends in the IT industry.
+- Learn practical experiences from speakers working in technology fields.
+- Improve soft skills, teamwork mindset, and career development orientation.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+---
 
-#### Domain-Driven Design (DDD)
+## List of Speakers
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- **Bao Huynh**
+  - **Position:** Junior Cloud Native Developer - Endava Vietnam, Founder / Head Lab - ITea Lab
+  - **Topic:** Docker - A Containerization Technology
 
-#### Event-Driven Architecture
+- **Le Hoang Gia Dai**
+  - **Team:** AWS G3
+  - **Topic:** Machine Learning-based Network Intrusion Detection System (NIDS) on AWS
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+- **Nguyen Quoc Bao**
+  - **Topic:** Multiplayer in the Cloud: Connecting Godot Clients with AWS WebSockets
 
-#### Compute Evolution
+- **Truong Phuoc**
+  - **Topic:** Effective Teamwork Methods
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+- **Viet Phat**
+  - **Topic:** AWS Neptune for Building a Graph Knowledge Base for GraphRAG
 
-#### Amazon Q Developer
+- **Vinh Tran**
+  - **Topic:** From IT Helpdesk to Senior Sysadmin: Self-learning Journey and Transition Path to Cloud/DevOps
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
-### Key Takeaways
+## Presentation Contents
 
-#### Design Mindset
+### 1. Docker - A Containerization Technology
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+**Speaker:** Bao Huynh  
+**Position:** Junior Cloud Native Developer - Endava Vietnam, Founder / Head Lab - ITea Lab
 
-#### Technical Architecture
+The presentation introduced Docker and containerization technology, helping participants understand how to package applications, manage runtime environments, and improve software deployment processes.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+---
 
-#### Modernization Strategy
+### 2. Machine Learning-based Network Intrusion Detection System (NIDS) on AWS
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+**Speaker:** Le Hoang Gia Dai  
+**Team:** AWS G3
 
-### Applying to Work
+This presentation introduced the application of Machine Learning combined with AWS services to build a Network Intrusion Detection System (NIDS).
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+The session provided insights into applying AI/ML technologies in cybersecurity and deploying intelligent security solutions on the Cloud platform.
 
-### Event Experience
+---
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+### 3. Multiplayer in the Cloud: Connecting Godot Clients with AWS WebSockets
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+**Speaker:** Nguyen Quoc Bao
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+The presentation focused on building multiplayer systems on the Cloud platform, connecting Godot Engine clients with AWS WebSockets to support real-time communication.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+---
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+### 4. Effective Teamwork Methods
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+**Speaker:** Truong Phuoc
 
-#### Some event photos
-*Add your event photos here*  
+The presentation focused on improving teamwork effectiveness, communication methods, collaboration between team members, and problem-solving during project development.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+---
+
+### 5. AWS Neptune for Building a Graph Knowledge Base for GraphRAG
+
+**Speaker:** Viet Phat
+
+The presentation introduced Amazon Neptune and how graph databases can be used to build Knowledge Bases for GraphRAG systems.
+
+Through this session, participants gained more understanding of applying Graph Database technology in modern AI systems.
+
+---
+
+### 6. From IT Helpdesk to Senior Sysadmin: Self-learning Journey and Transition Path to Cloud/DevOps
+
+**Speaker:** Vinh Tran
+
+The presentation shared the career development journey from an IT Helpdesk position to System Administrator, including self-learning experiences and the transition roadmap toward Cloud/DevOps.
+
+---
+
+## What I Learned
+
+After participating in the Saturday Meet up event, I gained more practical knowledge about technology and career development experiences.
+
+- Learned more about Docker and the role of containerization in application development and deployment.
+- Understood how Machine Learning can be combined with AWS to build network intrusion detection systems.
+- Learned about designing multiplayer systems on Cloud platforms using WebSocket technology.
+- Recognized the importance of teamwork skills in software development projects.
+- Gained knowledge about Amazon Neptune and the application of Graph Database in AI systems.
+- Learned valuable career development experiences in Cloud/DevOps from real-world journeys shared by speakers.
+
+---
+
+## Application to Work / Project
+
+- Applied Docker knowledge to improve application packaging and deployment processes.
+- Gained additional knowledge about Cloud solutions and security approaches to improve system architecture.
+- Understood more about designing scalable systems and real-time communication solutions.
+- Applied effective teamwork methods during project development.
+- Gained additional learning direction and skills related to Cloud and DevOps technologies.
+
+---
+
+## Experience During the Event
+
+Participating in Saturday Meet up was a valuable experience that allowed me to explore various technology topics and learn practical knowledge from experienced speakers.
+
+The presentations not only provided technical knowledge about Cloud, DevOps, AI, and Security but also helped me better understand career development paths in the IT industry.
+
+Especially, topics related to Docker, AWS, Machine Learning, and Cloud/DevOps are directly connected to my current learning process and project development. These topics provided new perspectives on building, deploying, and operating modern systems.
+
+---
+
+## Some Images from the Event
+
+_Add event participation images here_

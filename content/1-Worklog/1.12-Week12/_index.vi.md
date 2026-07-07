@@ -1,58 +1,51 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-07-10
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hoàn thiện báo cáo thực tập và tài liệu workshop.
+- Hoàn thiện Template báo cáo của chương trình First Cloud Journey (FCAJ).
+- Tổng hợp kết quả thực hiện project và hoàn tất các hồ sơ kết thúc chương trình thực tập.
+
+---
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                                                                  | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ---------------------------------------------------------------------------------------------------------- | ------------ | --------------- | -------------- |
+| 2   | - Hoàn thiện báo cáo thực tập <br> - Tổng hợp kết quả thực hiện project                                    | 06/07/2026   | 06/07/2026      |                |
+| 3   | - Hoàn thiện tài liệu workshop <br> - Rà soát nội dung và hình ảnh minh họa                                | 07/07/2026   | 07/07/2026      |                |
+| 4   | - Hoàn thiện Template báo cáo First Cloud Journey (FCAJ) <br> - Kiểm tra và cập nhật nội dung theo yêu cầu | 08/07/2026   | 08/07/2026      |                |
+| 5   | - Rà soát báo cáo, tài liệu workshop và hồ sơ thực tập <br> - Chỉnh sửa các nội dung còn thiếu             | 09/07/2026   | 09/07/2026      |                |
+| 6   | - Hoàn thiện và nộp báo cáo thực tập <br> - Hoàn tất các hồ sơ kết thúc chương trình thực tập              | 10/07/2026   | 10/07/2026      |                |
+
+---
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Hoàn thiện báo cáo thực tập và tổng hợp đầy đủ kết quả thực hiện trong suốt quá trình tham gia chương trình.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hoàn thiện tài liệu workshop và cập nhật nội dung theo đúng yêu cầu.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Hoàn thiện Template báo cáo của chương trình First Cloud Journey (FCAJ).
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Hoàn tất các hồ sơ kết thúc chương trình thực tập và chuẩn bị đầy đủ tài liệu để nộp.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+---
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+### Tự đánh giá:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Hoàn thành các công việc theo kế hoạch của chương trình thực tập.
 
+- Hoàn thành tổng hợp báo cáo, tài liệu workshop theo đúng yêu cầu.
 
+- Tích lũy thêm kinh nghiệm về quy trình triển khai, tài liệu hóa và báo cáo một dự án trên nền tảng AWS.
+
+- Kết thúc chương trình thực tập với sản phẩm, tài liệu và kiến thức đã tích lũy trong quá trình tham gia.
+
+---

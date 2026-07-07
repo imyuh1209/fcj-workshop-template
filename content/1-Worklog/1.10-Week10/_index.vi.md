@@ -1,59 +1,49 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-26
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hoàn thiện các chức năng của project.
+- Kiểm thử tổng thể và đánh giá hệ thống.
+- Tối ưu tài nguyên và rà soát bảo mật.
+- Hoàn thiện tài liệu và nội dung trình bày.
+
+---
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                       | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------------------------------------------------------------- | ------------ | --------------- | -------------- |
+| 2   | - Hoàn thiện các chức năng còn lại của project                  | 22/06/2026   | 22/06/2026      |                |
+| 3   | - Kiểm thử tổng thể <br> - Đánh giá độ ổn định của hệ thống     | 23/06/2026   | 23/06/2026      |                |
+| 4   | - Tối ưu tài nguyên <br> - Rà soát bảo mật và cấu hình hệ thống | 24/06/2026   | 24/06/2026      |                |
+| 5   | - Hoàn thiện tài liệu dự án <br> - Cập nhật sơ đồ kiến trúc     | 25/06/2026   | 25/06/2026      |                |
+| 6   | - Chuẩn bị nội dung trình bày <br> - Tổng hợp tiến độ dự án     | 26/06/2026   | 26/06/2026      |                |
+
+---
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Hoàn thiện các chức năng còn lại và kiểm thử tổng thể hệ thống.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Tối ưu tài nguyên, rà soát bảo mật và kiểm tra khả năng vận hành thực tế.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Hoàn thiện tài liệu dự án, sơ đồ kiến trúc và nội dung trình bày.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Chuẩn bị các nội dung cần thiết cho giai đoạn báo cáo và nghiệm thu.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+---
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+### Tự đánh giá:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Hoàn thành các công việc theo kế hoạch.
+- Biết thêm quy trình kiểm thử, tối ưu và rà soát hệ thống.
+- Cải thiện kỹ năng chuẩn bị tài liệu và thuyết trình dự án.
+- Sẵn sàng cho giai đoạn báo cáo và nghiệm thu project.
 
-
+---

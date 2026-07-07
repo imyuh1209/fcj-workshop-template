@@ -1,58 +1,52 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-05-29
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Tham gia buổi meeting của First Cloud Journey.
+- Tiếp tục phát triển project nhóm theo kế hoạch.
+- Hoàn thiện tài liệu và kiến trúc hệ thống.
+- Chuẩn bị cho giai đoạn triển khai tiếp theo.
+
+---
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                                                                                                                                       | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | -------------- |
+| 2   | - Tiếp tục phát triển project nhóm <br> - Hoàn thiện các chức năng được phân công                                                                                               | 25/05/2026   | 25/05/2026      |                |
+| 3   | - Kiểm tra và xử lý các lỗi phát sinh <br> - Cập nhật mã nguồn và đồng bộ với nhóm                                                                                              | 26/05/2026   | 26/05/2026      |                |
+| 4   | - Cập nhật tài liệu dự án <br> - Hoàn thiện kiến trúc hệ thống                                                                                                                  | 27/05/2026   | 27/05/2026      |                |
+| 5   | - Tiếp tục phát triển project <br> - Kiểm thử các chức năng đã hoàn thành                                                                                                       | 28/05/2026   | 28/05/2026      |                |
+| 6   | - Tổng hợp tiến độ dự án <br> - Chuẩn bị nội dung báo cáo tuần                                                                                                                  | 29/05/2026   | 29/05/2026      |                |
+| 7   | - Tham gia meeting First Cloud Journey <br> - Lắng nghe chia sẻ về công nghệ, kinh nghiệm học tập <br> - Trao đổi các vấn đề của dự án <br> - Tìm hiểu AWS Cloud Quest và Floci | 30/05/2026   | 30/05/2026      |                |
+
+---
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Tham gia buổi meeting của First Cloud Journey và cập nhật các nội dung chia sẻ về công nghệ, kinh nghiệm học tập.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Biết thêm các nguồn hỗ trợ cho dự án:
+  - AWS Cloud Quest.
+  - Floci.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Tiếp tục phát triển project nhóm và hoàn thiện các chức năng được phân công.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Cập nhật tài liệu dự án và hoàn thiện kiến trúc hệ thống.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+---
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+### Tự đánh giá:
 
+- Hoàn thành các công việc theo kế hoạch của tuần.
+- Có thêm kinh nghiệm làm việc nhóm và trao đổi trong dự án.
+- Biết thêm các công cụ hỗ trợ học tập và phát triển dự án trên AWS.
+- Tiếp tục hoàn thiện project và chuẩn bị cho các giai đoạn triển khai tiếp theo.
 
+---

@@ -1,59 +1,47 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+date: 2026-05-22
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Phân chia nhiệm vụ và xây dựng kiến trúc tổng quan cho project nhóm.
+- Tìm hiểu tối ưu hiệu năng với Amazon CloudFront.
+- Tiếp tục triển khai và hoàn thiện project.
+
+---
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                          |
+| --- | ------------------------------------------------------------------------------------------- | ------------ | --------------- | --------------------------------------- |
+| 2   | - Họp nhóm <br> - Phân chia nhiệm vụ <br> - Xây dựng kiến trúc tổng quan cho project        | 18/05/2026   | 18/05/2026      |                                         |
+| 4   | - Tìm hiểu tối ưu hiệu năng với Amazon CloudFront <br> - Áp dụng vào kiến trúc project      | 20/05/2026   | 20/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 5   | - Tiếp tục phát triển các chức năng của project <br> - Kiểm tra và xử lý lỗi phát sinh      | 21/05/2026   | 21/05/2026      |                                         |
+| 6   | - Tổng hợp kết quả thực hiện <br> - Hoàn thiện tài liệu và kế hoạch cho giai đoạn tiếp theo | 22/05/2026   | 22/05/2026      |                                         |
+
+---
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Hoàn thành phân chia nhiệm vụ và xây dựng kiến trúc tổng quan cho project nhóm.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Tìm hiểu Amazon CloudFront và biết thêm cách tối ưu hiệu năng cho ứng dụng.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Tiếp tục phát triển project và xử lý một số lỗi phát sinh trong quá trình triển khai.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Tổng hợp kết quả thực hiện và chuẩn bị cho giai đoạn phát triển tiếp theo.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+---
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+### Tự đánh giá:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Hoàn thành các công việc theo kế hoạch của tuần.
+- Biết thêm cách xây dựng kiến trúc và tối ưu hiệu năng trên AWS.
+- Phối hợp tốt với các thành viên trong nhóm để triển khai project.
+- Tiếp tục hoàn thiện các chức năng và tài liệu của project trong các tuần tiếp theo.
 
-
+---

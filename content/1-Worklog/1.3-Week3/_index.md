@@ -1,57 +1,64 @@
 ---
-title: "Week 3 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 3"
+date: 2026-05-08
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Objectives
 
-### Week 3 Objectives:
+- Learn AWS storage, database, and content delivery services.
+- Practice deploying a static website and connecting an application to a database.
+- Become familiar with AWS services for scaling, monitoring, and DNS management.
+- Continue practicing AWS CLI and learn the basics of NoSQL databases.
+- Participate in the internship at the company and discuss the project direction with the team.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Tasks
 
+| Day       | Tasks                                                                                                                         | Start Date | Completion Date | Reference                               |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
+| Monday    | - Practice hosting a static website with Amazon S3 <br> - Configure Static Website Hosting <br> - Integrate Amazon CloudFront | 01/05/2026 | 01/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Tuesday   | - Create and configure Amazon RDS <br> - Connect the application to the database <br> - Practice backup and restore           | 02/05/2026 | 02/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Wednesday | - Attend the internship at the company <br> - Discuss the project direction with the team <br> - Continue practicing AWS labs | 06/05/2026 | 06/05/2026      |                                         |
+| Thursday  | - Learn Amazon Lightsail Containers <br> - Practice Amazon EC2 Auto Scaling <br> - Monitor resources using Amazon CloudWatch  | 04/05/2026 | 04/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Friday    | - Manage DNS with Amazon Route 53 <br> - Practice AWS CLI <br> - Learn the basics of Amazon DynamoDB                          | 05/05/2026 | 05/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 
-### Week 3 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Achievements
 
-* Successfully created and configured an AWS Free Tier account.
+- Practiced hosting a static website using Amazon S3 and Amazon CloudFront for content delivery.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Created and configured Amazon RDS:
+  - Connected the application to the database
+  - Performed database backup and restore
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Learned about the following AWS services:
+  - Amazon Lightsail Containers
+  - Amazon EC2 Auto Scaling
+  - Amazon CloudWatch
 
-* Used AWS CLI to perform basic operations such as:
+- Practiced DNS management with Amazon Route 53 and used AWS CLI to manage AWS resources.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Became familiar with Amazon DynamoDB and basic NoSQL database operations.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Participated in the internship at the company, discussed the project direction with the team, and planned the next development phases.
+
+---
+
+### Self-evaluation
+
+- Successfully completed the learning activities related to AWS Storage, Database, Monitoring, and Networking services.
+
+- Learned more about deploying static websites and connecting applications to cloud databases.
+
+- Learned how to use AWS services for scaling and monitoring cloud applications.
+
+- Improved AWS CLI skills and gained basic experience with Amazon DynamoDB.
+
+- Gained practical working experience at the company and prepared for the project development phase.
+
+---
