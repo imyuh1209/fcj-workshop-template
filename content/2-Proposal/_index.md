@@ -1,5 +1,5 @@
 ---
-title: "Proposal"
+title: "Project Proposal"
 date: 2024-01-01
 weight: 2
 chapter: false
@@ -8,103 +8,206 @@ pre: " <b> 2. </b> "
 
 # AuraAcademic
 
-## AI-Powered Proctoring & Exam Platform on AWS
+## AI-Powered Online Examination and Proctoring Platform on AWS
 
 ### 1. Executive Summary
 
-AuraAcademic is an online examination platform integrated with AI proctoring designed to ensure fairness and transparency for remote exams. The system utilizes the YOLOv8 model for real-time cheating detection via camera streams. By combining an AWS cloud-native architecture (CloudFront, ECS Fargate, EC2 GPU Spot) with managed services, AuraAcademic provides an automated, low-latency monitoring solution while optimizing operational costs (reducing infrastructure costs by up to 70% using Spot Instances) for educational institutions.
+**AuraAcademic** is an advanced online examination platform that integrates **AI-powered proctoring** to automate exam monitoring and ensure fairness and integrity in remote assessments. By utilizing the **YOLOv8** (Nano version) deep learning model for real-time video analysis together with a cost-optimized **Amazon Web Services (AWS)** cloud architecture, the platform delivers low latency, high scalability, and an incredibly cost-effective infrastructure. Through the use of AWS Spot Instances and a Public Subnet-only architecture, operational costs can be reduced by up to **70-80%** compared to traditional deployments. AuraAcademic aims to provide educational institutions with an affordable, scalable, and intelligent online examination solution.
 
-### 2. Problem Statement
+---
 
-**What’s the Problem?**
-Current online examination platforms lack effective automated proctoring mechanisms, making cheating easy. Existing AI proctoring solutions in the market (e.g., ProctorU, Respondus) often come with expensive licensing fees, complex integration processes, and demand massive bandwidth or server resources.
+## 2. Problem Statement
 
-**The Solution**
-AuraAcademic solves this by building a comprehensive system:
+### Current Challenges
 
-- **Frontend (Next.js):** Statically hosted on Amazon S3 and distributed globally via CloudFront for a smooth experience.
-- **Backend Core API (Spring Boot):** Runs on ECS Fargate Spot to handle exam logic, submissions, and authentication.
-- **AI Proctoring (FastAPI + YOLOv8):** Hosted on an EC2 GPU instance (G4dn) to process real-time WebSockets streams from students, detecting anomalies like looking away, multiple people, or leaving the frame.
-- **Video Evidence:** Directly uploaded to S3 via VPC Endpoints for secure storage of violation evidence.
-- **Security & Authentication:** Managed by Amazon Cognito, AWS WAF, IAM, and Secrets Manager.
+The rapid growth of online education has significantly increased the demand for reliable remote examination systems. However, traditional Learning Management Systems (LMS) often lack automated monitoring capabilities, making it difficult to prevent academic dishonesty.
 
-**Benefits and Return on Investment (ROI)**
-The system automates the proctoring process, reducing the need for manual invigilators. By leveraging Spot Instances for both ECS Fargate and EC2 GPU, the system cuts infrastructure costs by up to 70% compared to On-Demand pricing. The total cost to maintain the system at a testing/small scale is only around $26 - $30 USD/month. This solution enables schools and educational organizations to adopt advanced proctoring technology affordably, enhancing the credibility of their online exams.
+Existing AI-based online proctoring solutions have several limitations:
 
-### 3. Solution Architecture
+- High licensing and subscription costs.
+- High hardware and network bandwidth requirements.
+- Limited flexibility for customization and integration.
 
-AuraAcademic employs a microservices architecture on AWS, strictly separating the Core API from AI Processing.
+### Proposed Solution
 
-**AWS Services Used**
+AuraAcademic addresses these challenges through a cloud-native architecture built on AWS.
 
-- **Amazon S3 & CloudFront**: Hosts and distributes the Next.js frontend globally, and stores video evidence.
-- **Amazon Cognito**: Manages user authentication via JWT.
-- **ALB (Application Load Balancer)**: Routes REST API requests to ECS and WebSockets traffic to the EC2 GPU instance.
-- **Amazon ECS (Fargate Spot)**: Runs the Spring Boot Backend container.
-- **Amazon EC2 (G4dn Spot)**: Runs FastAPI and the YOLOv8 model for real-time video processing.
-- **AWS SQS & Lambda**: Handles asynchronous (Event-Driven) exam extraction to reduce load on the Backend.
-- **AWS WAF & Secrets Manager**: Web application firewall and secure secret storage.
-- **Amazon SES**: Sends email notifications and OTPs.
-- **VPC, NAT Instance & Endpoints**: Secures the internal network and optimizes S3 uploads and CloudWatch logs with minimal data transfer costs.
-- **External Services**: MongoDB Atlas (Database) and Google Gemini API (Automated Question Generation).
+- **Frontend (Next.js):** Hosted on **Amazon S3 & CloudFront** for global CDN distribution, HTTPS security, and fast content delivery.
+- **Backend API (Spring Boot):** Handles authentication, examinations, submissions, and business logic on **Amazon ECS Fargate Spot**.
+- **AI Proctoring Engine (FastAPI + YOLOv8 Nano):** Runs on **Amazon EC2 (t3.medium Spot)** leveraging efficient CPU computing to analyze webcam streams in real time through WebSockets.
+- **Evidence Management:** Stores suspicious screenshots and video clips securely for later review.
 
-**Component Design**
+### Business Value
 
-- **Web Interface**: Students take exams and stream their cameras; Teachers manage exams and review violation reports.
-- **Core API**: Handles exam logic, pushes messages to SQS for AI question extraction, and stores results.
-- **AI Engine**: Receives camera streams via WebSockets, detects cheating using YOLOv8, and automatically uploads violation videos to S3.
+By automating the online proctoring process, educational institutions can significantly reduce manual supervision costs while maintaining examination integrity.
 
-### 4. Technical Implementation
+For approximately **100 concurrent students**, the estimated monthly infrastructure cost is only **USD 26–32**, completely eliminating expensive elements like NAT Gateways and GPUs, making the solution much more affordable than existing commercial platforms.
 
-**Implementation Phases (3-Month Internship Project)**
+---
 
-- **Month 1 (Initiation & Design):** Analyze VPC architecture, design the MongoDB database schema, prepare the YOLOv8 model, and define basic Event-Driven flows.
-- **Month 2 (Backend & AI Development):** Program the Spring Boot API, configure SQS + Lambda for exam extraction, and build FastAPI for WebSockets processing.
-- **Month 3 (Completion & Deployment):** Build the Next.js interface, deploy the system to AWS (S3, CloudFront, ECS, EC2 Spot), conduct testing, and finalize the internship report.
+## 3. Solution Architecture
 
-**Technical Requirements**
+AuraAcademic follows a **Microservices** and **Cloud-Native Architecture**, separating web services from AI processing services.
 
-- **Frontend**: Next.js, WebSockets client, browser-based recording.
-- **Backend**: Spring Boot, Spring Security, MongoDB Atlas integration.
-- **AI**: FastAPI, OpenCV, YOLOv8 object detection, video streaming processing.
-- **DevOps/AWS**: Docker, VPC (Public/Private Subnets, NAT Instance, VPC Endpoints), SQS, Lambda.
+### Core AWS Services
 
-### 5. Timeline & Milestones
+- **Amazon S3 & CloudFront**
+  - Static website hosting and CI/CD
+  - Global Content Delivery Network (CDN)
 
-- **Weeks 1-2**: Finalize system design, UI/UX, and set up code repositories.
-- **Weeks 3-5**: Develop core features (Exam Management) and SQS + Lambda integration for Gemini extraction.
-- **Weeks 6-9**: Integrate real-time YOLOv8 AI for camera stream analysis via WebSockets.
-- **Weeks 10-12**: Deploy to AWS, test Spot Instance fault-tolerance, and complete the final internship report.
+- **Application Load Balancer (ALB)**
+  - Routes REST API requests
+  - Routes WebSocket traffic to AI servers
 
-### 6. Budget Estimation
+- **Amazon ECS Fargate Spot**
+  - Runs Spring Boot backend services
+  - Automatically scales based on workload
 
-Utilizing a cost-optimized model with Spot Instances, estimated for a Testing/Small Scale environment (~100 concurrent students):
+- **Amazon EC2 t3.medium Spot**
+  - CPU-optimized instances for YOLOv8 Nano inference
 
-- **Frontend (S3 + CloudFront):** ~$0.00 USD/month (Free Tier).
-- **ECS Fargate Spot (Backend):** ~$4.00 - $6.00 USD/month.
-- **EC2 GPU Spot (AI Engine - g4dn.xlarge):** ~$3.00 USD/month (running only during exams, ~$0.15/hour).
-- **NAT Instance (t4g.nano):** ~$2.50 USD/month.
-- **Application Load Balancer (ALB):** ~$16.00 USD/month.
-- **MongoDB Atlas:** ~$0.00 USD/month (M0 Free Tier).
-- **VPC Endpoints, SES & Others:** ~$2.00 USD/month.
+- **AWS WAF & AWS Shield Standard**
+  - Protection against DDoS attacks
+  - Web application security
 
-**Total Estimation:** Approximately $28.00 - $30.00 USD/month.
 
-### 7. Risk Assessment
+- **Amazon VPC**
+  - Public Subnets (Cost-optimized)
+  - Highly secured using strict Security Groups (No NAT Gateway required)
 
-**Risk Matrix**
+### External Services
 
-- **Sudden Spot Instance Termination**: High impact, medium probability. (AWS can reclaim Spot instances at any time).
-- **High Camera Network Latency**: Medium impact, high probability (Depends on the student's internet connection).
-- **Billing Overage**: Medium impact, low probability (If EC2 GPU is left running).
+- MongoDB Atlas
+- Google Gemini API
+- Groq API
 
-**Mitigation Strategies**
+---
 
-- **Spot Instances**: Configure Auto Scaling groups or use scripts to automatically fallback to On-Demand instances if Spot capacity is unavailable.
-- **Latency**: Optimize video resolution sent to the server (e.g., 480p instead of 1080p) and compress video before transmission.
-- **Costs**: Set up AWS Budgets Alarms to trigger email notifications when costs exceed $10 and $20.
+## 4. Technical Implementation
 
-### 8. Expected Outcomes
+The project is planned to be completed within **three months** following the Agile development methodology.
 
-- **Technical Improvements:** Delivers an automated, real-time AI proctoring solution with a highly available Cloud-Native architecture, optimizing bandwidth via WebSockets.
-- **Long-term Value:** The platform can be packaged as a SaaS solution for universities and training centers, solving the online cheating problem with significantly lower operational costs than existing alternatives.
+### Phase 1 – Planning & Infrastructure
+
+- Requirement analysis
+- AWS network architecture
+- MongoDB schema design
+- YOLOv8 model preparation
+
+### Phase 2 – Core Development
+
+- Spring Boot REST API
+- Authentication system
+- AI Proctoring Engine
+- Question generation using Generative AI
+
+### Phase 3 – Deployment
+
+- Next.js frontend
+- Docker containerization
+- GitHub Actions CI/CD
+- AWS deployment
+- Performance and stress testing
+
+### Technology Stack
+
+**Frontend**
+
+- Next.js
+- React
+- WebSocket
+- MediaDevices API
+
+**Backend**
+
+- Java Spring Boot
+- Spring Security
+- MongoDB
+
+**AI**
+
+- Python
+- FastAPI
+- OpenCV
+- YOLOv8 Nano
+
+**DevOps**
+
+- Docker
+- GitHub Actions
+- AWS CloudFormation / Terraform
+
+---
+
+## 5. Roadmap and Milestones
+
+### Weeks 1–2
+
+- Requirement analysis
+- Architecture design
+- UI/UX design
+- Repository setup
+
+### Weeks 3–5
+
+- Authentication
+- Examination management
+- Question bank
+- AI-assisted question generation
+
+### Weeks 6–9
+
+- AI proctoring development
+- Real-time WebSocket processing
+- Performance optimization
+
+### Weeks 10–12
+
+- AWS deployment
+- CI/CD pipeline
+- Load testing
+- Documentation
+
+---
+
+## 6. Budget Estimation
+
+The following estimation is based on approximately **100 concurrent users**, strictly following the Standard Enterprise Architecture diagram which includes Private Subnets and a NAT Gateway.
+
+| Infrastructure   | AWS Service               | Monthly Cost      | Notes                       |
+| ---------------- | ------------------------- | ----------------- | --------------------------- |
+| Frontend Hosting | Amazon S3 & CloudFront    | ~$0.00            | AWS Free Tier               |
+| Backend Compute  | ECS Fargate Spot          | ~$4–6             | Spot pricing                |
+| AI Processing    | EC2 t3.medium Spot        | ~$4–8             | YOLOv8 Nano (CPU Inference) |
+| Load Balancer    | Application Load Balancer | ~$16              | HTTP & WebSocket routing    |
+| Networking       | NAT Gateway & Elastic IP  | ~$32.50           | Private to Public routing   |
+| Database         | MongoDB Atlas             | ~$0.00            | Free Tier                   |
+| Other Services   | Amazon CloudWatch         | ~$2               | System logging & monitoring |
+| **Total**        |                           | **~$58.50–64.50** | Standard Enterprise setup   |
+
+---
+
+## 7. Risk Assessment
+
+| Risk                       | Impact | Probability | Mitigation                                                |
+| -------------------------- | ------ | ----------- | --------------------------------------------------------- |
+| Spot Instance interruption | High   | Medium      | Automatic replacement and fallback to On-Demand instances |
+| High network latency       | Medium | High        | Compress webcam frames before transmission                |
+| Unexpected AWS costs       | Medium | Low         | AWS Budgets and Billing Alarms                            |
+
+---
+
+## 8. Expected Outcomes
+
+### Technical Outcomes
+
+- Develop a real-time AI-powered online proctoring platform.
+- Demonstrate the application of Cost-Optimized Cloud-Native Architecture on AWS.
+- Build a scalable microservices system using AWS services without incurring massive infrastructure costs.
+
+### Practical Outcomes
+
+- Provide educational institutions with an affordable online examination platform.
+- Reduce infrastructure costs dramatically through AWS Spot Instances and smart networking.
+- Improve examination fairness using automated AI monitoring.
+- Establish a solid foundation for future SaaS commercialization.

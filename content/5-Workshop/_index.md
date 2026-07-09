@@ -1,31 +1,31 @@
 ---
-title: "Workshop"
+title: "Practical Deployment (Workshop)"
 date: 2024-01-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# AuraAcademic AWS Deployment Guide (Step-by-Step)
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+In this section, we will practice deploying the entire **AuraAcademic** system architecture to the actual Amazon Web Services (AWS) cloud computing environment.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+**Important Note on Deployment Architecture (Cost-Optimized vs Enterprise):**
+- **Architecture Diagram (Enterprise):** In the theoretical design, we use **Private Subnets** and **NAT Gateways** to ensure maximum security (High Security & High Availability).
+- **Practical Deployment (Cost-Optimized):** Since NAT Gateways have a very high maintenance cost (~$86/month), in this workshop, we will apply a **Cost-Optimized Architecture for students**. The ECS and EC2 servers will be placed in **Public Subnets** and strictly protected by **Security Groups (Firewalls)**. This approach helps you complete your project excellently with a maintenance cost of only about $30-$50/month (or even less than $10 using Spot Instances).
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+#### Workshop Content
 
-#### Content
+The deployment process is divided into 7 main stages:
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Stage 1: IAM & Security](5.1-iam-security/) - Create accounts and grant permissions for GitHub Actions, ECS.
+2. [Stage 2: VPC Network](5.2-vpc-network/) - Build a cost-optimized Public Subnet architecture and Routing.
+3. [Stage 3: ECS Backend](5.3-ecs-backend/) - Deploy the Spring Boot API to Serverless Containers.
+4. [Stage 4: EC2 GPU AI](5.4-ec2-gpu-ai/) - Install the VM running YOLOv8 and LiteLLM for WebSockets processing.
+5. [Stage 5: S3 & CloudFront Frontend](5.5-s3-cloudfront-frontend/) - Host static web files and global CDN.
+6. [Stage 6: CI/CD GitHub Actions](5.6-cicd-github/) - Integrate automated code deployment pipeline.
+7. [Resource Cleanup](5.7-cleanup/) - Guide to deleting services to avoid incurring costs.
+
+> **Note:** Get your AWS account ready and let's go step-by-step!

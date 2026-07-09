@@ -1,127 +1,154 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: "Amazon S3 Files – Khi Amazon S3 không chỉ là Object Storage"
+date: 2026-07-08
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+## Giới thiệu
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Nếu đã từng học hoặc làm việc với AWS, chắc hẳn bạn đều biết đến **Amazon S3 (Simple Storage Service)** – dịch vụ lưu trữ đối tượng (Object Storage) nổi tiếng của AWS với khả năng mở rộng gần như không giới hạn, độ bền dữ liệu lên tới **99.999999999% (11 số 9)** và chi phí tối ưu.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Tuy nhiên, trong nhiều năm qua, S3 luôn có một hạn chế đối với các ứng dụng truyền thống: **S3 là Object Storage chứ không phải File Storage**.
 
----
+Điều đó có nghĩa là thay vì mở một file bằng những thao tác quen thuộc như `open()`, `read()` hay `write()`, lập trình viên phải sử dụng API hoặc SDK của AWS để làm việc với dữ liệu. Với các ứng dụng được thiết kế theo mô hình file system, đây là một rào cản không nhỏ.
 
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Để giải quyết bài toán này, AWS đã giới thiệu **Amazon S3 Files** – một tính năng mới giúp các bucket Amazon S3 có thể được truy cập theo cách tương tự một hệ thống tệp (File System), giúp việc phát triển và triển khai ứng dụng trên AWS trở nên đơn giản hơn.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Amazon S3 Files là gì?
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Amazon S3 Files cho phép người dùng **mount một bucket Amazon S3 như một hệ thống tệp**, từ đó ứng dụng có thể thực hiện các thao tác quen thuộc như:
 
----
+- Đọc file
+- Ghi file
+- Đổi tên
+- Xóa file
+- Duyệt thư mục
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+Điều quan trọng là **dữ liệu vẫn được lưu trữ dưới dạng object trong Amazon S3**. Amazon S3 Files chỉ cung cấp một lớp truy cập theo mô hình file system, giúp các ứng dụng làm việc với dữ liệu theo cách tự nhiên hơn mà không cần phải viết nhiều đoạn mã sử dụng AWS SDK.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Nói cách khác, Amazon S3 Files đóng vai trò như một "cầu nối" giữa **Object Storage** và **File System**.
 
 ---
 
-## The pub/sub hub
+## Trước đây chúng ta thường gặp khó khăn gì?
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Đối với các ứng dụng cloud-native, việc sử dụng API của Amazon S3 không phải là vấn đề lớn.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Tuy nhiên, với các:
 
----
+- Ứng dụng truyền thống (Legacy Applications)
+- Công cụ xử lý dữ liệu
+- Thư viện AI/ML
+- Phần mềm Linux
 
-## Core microservice
+...chúng thường chỉ được thiết kế để làm việc với file system.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Để giải quyết, nhiều doanh nghiệp phải triển khai thêm:
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+- Amazon EFS
+- Amazon FSx
 
----
+Sau đó đồng bộ dữ liệu giữa File Storage và Amazon S3.
 
-## Front door microservice
+Điều này khiến:
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+- Chi phí tăng lên
+- Kiến trúc hệ thống phức tạp hơn
+- Khó mở rộng và quản lý
+
+Amazon S3 Files được tạo ra nhằm giảm bớt những hạn chế đó.
 
 ---
 
-## Staging ER7 microservice
+# Những lợi ích nổi bật
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+## 1. Đơn giản hóa việc phát triển ứng dụng
+
+Thay vì phải gọi API để tải lên hoặc tải xuống dữ liệu, ứng dụng có thể thao tác trực tiếp với các tệp bằng những thao tác quen thuộc.
+
+Điều này giúp:
+
+- Giảm lượng mã nguồn cần viết
+- Dễ bảo trì
+- Rút ngắn thời gian phát triển
 
 ---
 
-## Tính năng mới trong giải pháp
+## 2. Tận dụng chi phí thấp của Amazon S3
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Dữ liệu vẫn được lưu trực tiếp trong Amazon S3 nên người dùng vẫn được hưởng:
+
+- Chi phí lưu trữ thấp
+- Khả năng mở rộng gần như không giới hạn
+- Độ bền dữ liệu rất cao
+
+Trong nhiều trường hợp, doanh nghiệp có thể giảm nhu cầu triển khai thêm các hệ thống lưu trữ dạng file.
+
+---
+
+## 3. Khả năng mở rộng gần như không giới hạn
+
+Amazon S3 được thiết kế để lưu trữ khối lượng dữ liệu rất lớn.
+
+Amazon S3 Files kế thừa ưu điểm này, giúp các ứng dụng xử lý lượng dữ liệu lớn mà không cần lo lắng về việc mở rộng dung lượng lưu trữ.
+
+---
+
+## 4. Dễ dàng tích hợp với hệ sinh thái AWS
+
+Amazon S3 Files có thể kết hợp với nhiều dịch vụ AWS như:
+
+- Amazon EC2
+- Amazon ECS
+- Amazon EKS
+- Các dịch vụ AI/ML
+- Phân tích dữ liệu
+
+Nhờ đó nhiều ứng dụng có thể cùng truy cập một nguồn dữ liệu mà không cần tạo thêm nhiều bản sao.
+
+---
+
+## Những trường hợp sử dụng tiêu biểu
+
+Amazon S3 Files đặc biệt phù hợp với:
+
+- Huấn luyện mô hình AI và Machine Learning
+- Xây dựng Data Lake
+- Phân tích dữ liệu quy mô lớn
+- Xử lý hình ảnh và video
+- Lưu trữ tài liệu số
+- Chạy ứng dụng trên Kubernetes với Amazon EKS
+- Di chuyển các ứng dụng truyền thống lên AWS mà không cần thay đổi quá nhiều mã nguồn
+
+---
+
+## Có điều gì cần lưu ý?
+
+Mặc dù Amazon S3 Files mang lại trải nghiệm tương tự một file system, **Amazon S3 vẫn là Object Storage**.
+
+Điều này có nghĩa là một số hành vi hoặc tính năng đặc thù của file system truyền thống có thể hoạt động khác hoặc chưa được hỗ trợ đầy đủ.
+
+Ngoài ra, đây vẫn là một tính năng mới của AWS. Trước khi triển khai cho môi trường production, người dùng nên đọc kỹ tài liệu chính thức và thử nghiệm với các ứng dụng thực tế.
+
+---
+
+## Kết luận
+
+Amazon S3 Files là một bước tiến đáng chú ý của AWS trong việc thu hẹp khoảng cách giữa **Object Storage** và **File Storage**.
+
+Nhờ lớp truy cập theo mô hình file system, các ứng dụng có thể làm việc với dữ liệu trên Amazon S3 theo cách tự nhiên hơn mà vẫn tận dụng được khả năng mở rộng, độ bền và chi phí tối ưu của S3.
+
+Đối với các doanh nghiệp đang xây dựng hệ thống AI, Machine Learning, Data Analytics hoặc xử lý lượng lớn tệp trên AWS, Amazon S3 Files hứa hẹn sẽ giúp đơn giản hóa kiến trúc, giảm chi phí và rút ngắn thời gian phát triển.
+
+Nếu bạn đang học AWS hoặc tìm hiểu về các dịch vụ lưu trữ trên nền tảng này, Amazon S3 Files là một tính năng rất đáng để khám phá.
+
+---
+
+## Tài liệu tham khảo
+
+- https://aws.amazon.com/blogs/aws/launching-s3-files-making-s3-buckets-accessible-as-file-systems/

@@ -10,99 +10,97 @@ pre: " <b> 2. </b> "
 
 ## Nền tảng Thi trực tuyến và Giám sát bằng AI trên AWS
 
-### 1. Tóm tắt điều hành
+### 1. Tóm tắt điều hành (Executive Summary)
 
-AuraAcademic là nền tảng thi trắc nghiệm trực tuyến tích hợp AI giám sát (AI-Powered Proctoring & Exam Platform) nhằm đảm bảo tính công bằng và minh bạch cho các kỳ thi từ xa. Hệ thống ứng dụng mô hình YOLOv8 để phát hiện gian lận qua camera theo thời gian thực. Bằng việc kết hợp kiến trúc AWS (CloudFront, ECS Fargate, EC2 GPU Spot) và mô hình Serverless/Managed Services, AuraAcademic cung cấp một giải pháp giám sát tự động, độ trễ thấp và tối ưu hóa chi phí vận hành (có thể giảm tới 70% chi phí thông qua Spot Instances), phục vụ nhu cầu tổ chức thi trực tuyến cho các cơ sở giáo dục.
+**AuraAcademic** là nền tảng tổ chức thi trắc nghiệm trực tuyến tiên tiến, tích hợp công nghệ Trí tuệ Nhân tạo (AI-Powered Proctoring) nhằm tự động hóa việc giám sát và đảm bảo tính công bằng, minh bạch tuyệt đối cho các kỳ thi từ xa. Bằng việc ứng dụng mô hình học sâu **YOLOv8** (phiên bản Nano) phân tích luồng video theo thời gian thực kết hợp với kiến trúc điện toán đám mây tối ưu của **Amazon Web Services (AWS)**, AuraAcademic mang đến một giải pháp toàn diện: độ trễ cực thấp, khả năng mở rộng linh hoạt và đặc biệt là tối ưu hóa chi phí vận hành (giảm tới 70-80% nhờ chiến lược sử dụng Spot Instances và kiến trúc Cost-Optimized). Dự án hướng tới việc cung cấp một công cụ mạnh mẽ, dễ tiếp cận cho các cơ sở giáo dục hiện đại.
 
-### 2. Tuyên bố vấn đề
+### 2. Tuyên bố vấn đề (Problem Statement)
 
-**Vấn đề hiện tại**  
-Các nền tảng thi trực tuyến hiện nay thiếu cơ chế giám sát tự động hiệu quả, dẫn đến tình trạng gian lận dễ dàng xảy ra. Các giải pháp giám sát có ứng dụng AI trên thị trường (như ProctorU, Respondus) thường có chi phí cấp phép rất đắt đỏ, tích hợp phức tạp, và đòi hỏi băng thông lớn hoặc tài nguyên máy chủ khổng lồ.
+**Thách thức hiện tại:**
+Sự chuyển dịch sang giáo dục trực tuyến kéo theo nhu cầu cấp thiết về việc tổ chức thi từ xa. Tuy nhiên, các hệ thống LMS (Learning Management System) truyền thống lại thiếu đi cơ chế giám sát tự động hiệu quả, khiến tỷ lệ gian lận gia tăng. Trong khi đó, các giải pháp giám sát có tích hợp AI hiện có trên thị trường (như ProctorU, Respondus) vấp phải nhiều rào cản:
 
-**Giải pháp**  
-AuraAcademic giải quyết bài toán này bằng cách xây dựng một hệ thống hoàn chỉnh:
+- Chi phí cấp phép bản quyền quá cao đối với các tổ chức giáo dục quy mô vừa và nhỏ.
+- Yêu cầu cấu hình phần cứng khắt khe hoặc tiêu tốn quá nhiều băng thông của người dùng cuối.
+- Khả năng tích hợp phức tạp, thiếu tính linh hoạt.
 
-- **Frontend (Next.js)** lưu trữ tĩnh trên Amazon S3 và phân phối qua CloudFront, mang lại trải nghiệm mượt mà.
-- **Backend Core API (Spring Boot)** chạy trên ECS Fargate Spot để xử lý logic đề thi, bài làm, và xác thực.
-- **AI Proctoring (FastAPI + YOLOv8)** chạy trên máy ảo EC2 GPU (dòng G4dn) xử lý luồng WebSockets trực tiếp từ thí sinh để phát hiện hành vi gian lận (như quay cóp, có người lạ, rời khỏi khung hình).
-- **Video Evidence** được lưu lên S3 thông qua NAT Instance để làm bằng chứng vi phạm an toàn.
-- **Xác thực và Bảo mật** sử dụng Amazon Cognito, kết hợp AWS WAF và IAM.
+**Giải pháp đề xuất:**
+AuraAcademic giải quyết triệt để bài toán này thông qua một hệ sinh thái đồng bộ và tối ưu trên AWS:
 
-**Lợi ích và hoàn vốn đầu tư (ROI)**  
-Hệ thống tự động hóa quá trình giám sát, giảm thiểu nhân lực canh thi truyền thống. Bằng cách sử dụng Spot Instances cho cả ECS Fargate và EC2 GPU, hệ thống giảm thiểu chi phí hạ tầng tới 70% so với chạy On-Demand. Tổng chi phí duy trì hệ thống ở mức thử nghiệm/quy mô nhỏ chỉ khoảng 26 - 30 USD/tháng. Giải pháp này giúp các trường học/tổ chức giáo dục dễ dàng tiếp cận công nghệ giám sát thi cử tiên tiến với mức phí hợp lý, nâng cao uy tín của các kỳ thi trực tuyến.
+- **Frontend (Next.js):** Được phân phối tĩnh toàn cầu qua **Amazon S3 & CloudFront**, đảm bảo trải nghiệm người dùng mượt mà, tải trang nhanh chóng ở mọi vị trí địa lý và bảo mật HTTPS.
+- **Backend Core API (Spring Boot):** Xử lý nghiệp vụ lõi (đề thi, nộp bài, xác thực) vận hành trên **Amazon ECS Fargate Spot**, tự động mở rộng theo lưu lượng thực tế.
+- **AI Proctoring Engine (FastAPI + YOLOv8 Nano):** Khai thác sức mạnh tính toán CPU hiệu quả của **Amazon EC2 (t3.medium Spot)** xử lý luồng WebSockets trực tiếp từ thiết bị thí sinh. Hệ thống tự động nhận diện các hành vi bất thường (người lạ xuất hiện, quay cóp, rời khỏi khung hình,...) theo thời gian thực.
+- **Quản lý bằng chứng (Evidence Management):** Tự động ghi nhận và lưu trữ an toàn các đoạn video vi phạm thông qua cơ sở dữ liệu và lưu trữ đám mây.
 
-### 3. Kiến trúc giải pháp
+**Lợi ích và Hoàn vốn đầu tư (ROI):**
+Việc tự động hóa khâu giám sát giúp các cơ sở đào tạo tiết kiệm đáng kể nguồn lực giám thị truyền thống. Điểm đột phá của AuraAcademic nằm ở **Kiến trúc Tối ưu Chi phí (Cost-Optimized)**: tận dụng triệt để AWS Spot Instances và triển khai hoàn toàn trên Public Subnet (bảo mật chặt chẽ qua Security Groups) để triệt tiêu hoàn toàn chi phí NAT Gateway. Ở quy mô thử nghiệm (khoảng 100 sinh viên đồng thời), tổng chi phí duy trì cơ sở hạ tầng chỉ dao động từ **26 - 32 USD/tháng**, thấp hơn rất nhiều so với các giải pháp thương mại.
 
-AuraAcademic áp dụng kiến trúc Microservices trên AWS, phân tách rõ ràng giữa Core API và AI Processing.
+### 3. Kiến trúc giải pháp (Solution Architecture)
 
-**Dịch vụ AWS sử dụng**
+AuraAcademic tuân thủ chặt chẽ kiến trúc **Microservices** và **Cloud-Native**, phân tách rõ ràng luồng xử lý Web (REST API) và luồng phân tích Video (WebSockets).
 
-- **Amazon S3 & CloudFront**: Lưu trữ và phân phối ứng dụng web Frontend (Next.js) toàn cầu, lưu trữ video bằng chứng.
-- **Amazon Cognito**: Quản lý xác thực người dùng bằng JWT.
-- **ALB (Application Load Balancer)**: Định tuyến request REST API vào ECS và WebSockets vào EC2 GPU.
-- **Amazon ECS (Fargate Spot)**: Chạy Spring Boot Backend container.
-- **Amazon EC2 (G4dn Spot)**: Chạy FastAPI và model YOLOv8 xử lý video thời gian thực.
-- **AWS WAF**: Tường lửa bảo vệ ứng dụng khỏi các cuộc tấn công độc hại.
-- **Amazon SES**: Gửi email thông báo, OTP.
-- **VPC, Public/Private Subnets & NAT Instance**: Đảm bảo phân tách mạng nội bộ và cấp phép truy cập Internet an toàn.
-- **Dịch vụ ngoại vi**: MongoDB Atlas (Database), Google Gemini API (Sinh câu hỏi tự động).
+**Các dịch vụ AWS chủ đạo:**
 
-**Thiết kế thành phần**
+- **Amazon S3 & CloudFront:** Lưu trữ tĩnh (Static Hosting) cho Frontend, CI/CD tự động và thiết lập Mạng phân phối nội dung (CDN) toàn cầu.
+- **Application Load Balancer (ALB):** Điểm vào duy nhất cho ứng dụng, định tuyến thông minh REST API tới ECS và WebSockets tới EC2.
+- **Amazon ECS (Fargate Spot):** Môi trường Container Serverless chạy Spring Boot, không cần quản lý máy chủ vật lý.
+- **Amazon EC2 (t3.medium Spot):** Cung cấp năng lực xử lý CPU tối ưu cho mô hình YOLOv8 Nano phân tích Computer Vision.
+- **AWS WAF & Shield Standard:** Lớp phòng thủ đa tầng chống lại các cuộc tấn công DDoS và khai thác lỗ hổng web (OWASP Top 10).
 
-- **Giao diện Web**: Sinh viên làm bài và truyền luồng camera; Giáo viên quản lý đề thi và xem báo cáo vi phạm.
-- **Core API**: Xử lý logic kỳ thi, xử lý bất đồng bộ (@Async) bóc tách đề thi bằng Gemini, và lưu trữ kết quả.
-- **AI Engine**: Nhận stream camera qua WebSockets, nhận diện gian lận bằng YOLOv8 và tự động upload video vi phạm lên S3.
+- **VPC & Public Subnets:** Xây dựng hàng rào mạng ảo Cost-Optimized. Không sử dụng NAT Gateway để tiết kiệm chi phí, thay vào đó bảo mật các lớp tính toán lõi hoàn toàn thông qua Security Groups khắt khe.
 
-### 4. Triển khai kỹ thuật
+**Các dịch vụ ngoại vi bổ trợ:**
 
-**Các giai đoạn triển khai (Dự án thực tập 3 tháng)**
+- **MongoDB Atlas:** Cơ sở dữ liệu linh hoạt (NoSQL), quản lý dưới dạng managed service (Serverless/Free Tier).
+- **Google Gemini API / Groq API:** Tích hợp Generative AI để hỗ trợ giáo viên tự động bóc tách, sinh câu hỏi từ tài liệu thô.
 
-- **Tháng 1 (Khởi tạo & Thiết kế)**: Phân tích kiến trúc VPC, thiết kế database MongoDB, chuẩn bị model YOLOv8.
-- **Tháng 2 (Phát triển Backend & AI)**: Lập trình Spring Boot API, tích hợp Gemini bóc tách đề thi. Xây dựng FastAPI xử lý WebSockets camera.
-- **Tháng 3 (Hoàn thiện & Triển khai)**: Xây dựng UI Next.js, đưa hệ thống lên AWS (S3, CloudFront, ECS, EC2 Spot). Kiểm thử và báo cáo nghiệm thu thực tập.
+### 4. Kế hoạch Triển khai Kỹ thuật (Technical Implementation)
 
-**Yêu cầu kỹ thuật**
+Dự án được thiết kế để hoàn thiện trong một chu kỳ phát triển 3 tháng, áp dụng phương pháp luận Agile.
 
-- **Frontend**: Next.js, WebSockets client, ghi hình trên trình duyệt.
-- **Backend**: Spring Boot, Spring Security, kết nối MongoDB Atlas.
-- **AI**: FastAPI, OpenCV, YOLOv8 object detection, xử lý video streaming.
-- **DevOps/AWS**: Docker, VPC (Public/Private Subnets, NAT Instance).
+**Các giai đoạn cốt lõi:**
 
-### 5. Lộ trình & Mốc triển khai
+- **Giai đoạn 1 (Thiết kế & Khởi tạo hạ tầng):** Phác thảo kiến trúc hệ thống, thiết lập AWS VPC, mô hình hóa cơ sở dữ liệu MongoDB và huấn luyện/tinh chỉnh cấu hình mô hình YOLOv8.
+- **Giai đoạn 2 (Phát triển Nghiệp vụ & Tích hợp AI):** Xây dựng hệ thống Core API bằng Spring Boot, lập trình AI Engine bằng FastAPI xử lý WebSockets. Tích hợp Generative AI để tự động hóa khâu làm đề.
+- **Giai đoạn 3 (Hoàn thiện & Triển khai Cloud):** Phát triển giao diện Next.js, đóng gói Container và đẩy toàn bộ hệ thống lên môi trường AWS thực tế thông qua CI/CD Pipeline (GitHub Actions). Tiến hành Stress Test và bàn giao.
 
-- **Tuần 1-2**: Phân tích thiết kế hệ thống, UI/UX và thiết lập code repository.
-- **Tuần 3-5**: Phát triển tính năng cốt lõi (Quản lý kỳ thi) và bóc tách đề bằng Gemini.
-- **Tuần 6-9**: Tích hợp AI YOLOv8 nhận diện luồng camera theo thời gian thực.
-- **Tuần 10-12**: Triển khai lên AWS, kiểm thử tính chịu lỗi của Spot Instances và hoàn thiện tài liệu báo cáo thực tập.
+**Stack công nghệ:**
 
-### 6. Ước tính ngân sách
+- **Frontend:** Next.js (React), WebSockets Client, MediaDevices API (Ghi hình trình duyệt).
+- **Backend:** Java Spring Boot 3, Spring Security, MongoDB Data.
+- **AI/Computer Vision:** Python, FastAPI, OpenCV, Ultralytics YOLOv8 Nano.
+- **DevOps & Cloud:** Docker, GitHub Actions, AWS CloudFormation / Terraform (tùy chọn quản lý hạ tầng as Code).
 
-Sử dụng mô hình tối ưu chi phí với Spot Instances, ước tính cho môi trường Test/Quy mô nhỏ (~100 sinh viên đồng thời):
+### 5. Lộ trình & Mốc thời gian (Roadmap & Milestones)
 
-- **Frontend (S3 + CloudFront)**: ~0,00 USD/tháng (Free Tier).
-- **ECS Fargate Spot (Backend)**: ~4,00 - 6,00 USD/tháng.
-- **EC2 GPU Spot (AI Engine - g4dn.xlarge)**: ~3,00 USD/tháng (chỉ bật khi có lịch thi, giá ~0,15 USD/giờ).
-- **NAT Instance (t4g.nano)**: ~2,50 USD/tháng.
-- **Application Load Balancer (ALB)**: ~16,00 USD/tháng.
-- **MongoDB Atlas**: ~0,00 USD/tháng (Gói M0 Free).
-- **SES & Khác**: ~2,00 USD/tháng.
-  **Tổng ước tính:** Khoảng 28 - 30 USD/tháng (Có thể cover hoàn toàn bằng Credit).
+- **Tuần 1-2 (Foundation):** Thống nhất yêu cầu, thiết kế kiến trúc hệ thống (Architecture Diagram), phác thảo UI/UX và thiết lập kho mã nguồn.
+- **Tuần 3-5 (Core Features):** Hoàn thiện các tính năng cốt lõi (Tạo kỳ thi, quản lý ngân hàng câu hỏi, luồng thi) và tích hợp bóc tách đề bằng Gemini.
+- **Tuần 6-9 (AI Proctoring):** Phát triển module AI, nhận và phân tích luồng WebSockets camera từ nhiều client đồng thời, tối ưu FPS.
+- **Tuần 10-12 (Deployment & Validation):** Triển khai toàn hệ thống lên AWS. Xây dựng kịch bản kiểm thử giả lập mất Spot Instances. Đóng gói tài liệu báo cáo nghiệm thu.
 
-### 7. Đánh giá rủi ro
+### 6. Ước tính Ngân sách (Budget Estimation)
 
-**Ma trận rủi ro**
+Ngân sách được tính toán cho một môi trường quy mô nhỏ/thử nghiệm (~100 kết nối đồng thời), bám sát theo Sơ đồ Kiến trúc Chuẩn (Enterprise Architecture) bao gồm hệ thống Private Subnets và NAT Gateway:
 
-- **Mất Spot Instance đột ngột**: Ảnh hưởng cao, xác suất trung bình. (Do AWS có thể thu hồi Spot máy ảo bất cứ lúc nào).
-- **Độ trễ mạng camera lớn**: Ảnh hưởng trung bình, xác suất cao (Tùy thuộc đường truyền mạng của thí sinh).
-- **Quá tải chi phí (Billing overage)**: Ảnh hưởng trung bình, xác suất thấp (Nếu quên tắt EC2 GPU).
+| Hạng mục Hạ tầng     | Dịch vụ AWS                | Chi phí ước tính (Tháng) | Ghi chú                        |
+| :------------------- | :------------------------- | :----------------------- | :----------------------------- |
+| **Frontend Hosting** | S3 + CloudFront            | ~$0.00                   | Sử dụng Free Tier              |
+| **Core API Compute** | ECS Fargate (Spot)         | ~$4.00 - $6.00           | Tối ưu 70% giá On-demand       |
+| **AI Processing**    | EC2 CPU (t3.medium Spot)   | ~$4.00 - $8.00           | Chạy YOLOv8 Nano (CPU)         |
+| **Load Balancing**   | ALB                        | ~$16.00                  | Định tuyến HTTP/WebSockets     |
+| **Networking**       | NAT Gateway & Elastic IP   | ~$32.50                  | Trạm trung chuyển Private -> Internet |
+| **Database**         | MongoDB Atlas (M0)         | ~$0.00                   | Free Tier                      |
+| **Khác**             | Amazon CloudWatch          | ~$2.00                   | Ghi log & giám sát hệ thống    |
+| **Tổng cộng**        |                            | **~$58.50 - $64.50**     | Kiến trúc chuẩn Enterprise     |
 
-**Chiến lược giảm thiểu**
+### 7. Đánh giá Rủi ro (Risk Assessment)
 
-- **Spot Instance**: Cấu hình Auto Scaling group hoặc dùng script tự động fallback sang On-Demand nếu Spot không khả dụng.
-- **Độ trễ**: Tối ưu độ phân giải video gửi lên server (VD: 480p thay vì 1080p), nén video trước khi gửi.
-- **Chi phí**: Đặt AWS Budgets Alarm cảnh báo qua email khi chi phí vượt ngưỡng 10 USD, 20 USD.
+| Rủi ro                                             | Mức độ Ảnh hưởng | Xác suất   | Chiến lược Giảm thiểu (Mitigation)                                                                                                                     |
+| :------------------------------------------------- | :--------------- | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AWS thu hồi Spot Instance đột ngột**             | Cao              | Trung bình | Định cấu hình ECS Service tự động thay thế Task. Đối với EC2, thiết lập script fallback tự động sang On-Demand Instance khi cạn kiệt Spot pool.        |
+| **Độ trễ truyền tải Video (Network Latency)**      | Trung bình       | Cao        | Tối ưu hóa client: Chỉ gửi khung hình (frame) độ phân giải thấp (480p), áp dụng nén JPEG/WebP trước khi đẩy qua WebSockets.                            |
+| **Phát sinh chi phí ngoài ý muốn (Billing Shock)** | Trung bình       | Thấp       | Thiết lập AWS Budgets và Billing Alarms. Tự động gửi cảnh báo qua Email/Slack khi chi phí vượt ngưỡng $10, $20. Quản lý chặt chẽ vòng đời của máy EC2. |
 
-### 8. Kết quả kỳ vọng
+### 8. Kết quả Kỳ vọng (Expected Outcomes)
 
-- **Cải tiến kỹ thuật**: Cung cấp giải pháp giám sát thi tự động thời gian thực bằng AI với kiến trúc Cloud-Native có tính sẵn sàng cao, tối ưu hóa băng thông bằng WebSockets.
-- **Giá trị dài hạn**: Nền tảng có thể đóng gói thành giải pháp SaaS bán cho các trường đại học/trung tâm đào tạo, giải quyết bài toán chống gian lận trực tuyến với chi phí vận hành rẻ hơn nhiều so với các giải pháp hiện tại.
+- **Đột phá về Kỹ thuật:** Xây dựng thành công một giải pháp giám sát thi cử phân tán, thời gian thực bằng AI, chứng minh khả năng áp dụng kiến trúc Cloud-Native và các kỹ thuật xử lý WebSockets diện rộng với chi phí siêu rẻ.
+- **Giá trị Thực tiễn & Thương mại:** Nền tảng hoàn toàn có tiềm năng được đóng gói thành một giải pháp phần mềm dạng dịch vụ (SaaS). Qua đó, cung cấp cho các trường học, trung tâm đào tạo một công cụ chống gian lận trực tuyến có độ tin cậy cao với chi phí vận hành chỉ bằng một phần nhỏ so với các nền tảng thương mại truyền thống.

@@ -1,126 +1,157 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: "Amazon S3 Files – When Amazon S3 Becomes More Than Object Storage"
+date: 2026-07-08
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
 
----
+## Introduction
 
-## Architecture Guidance
+If you have studied or worked with AWS, you are probably familiar with **Amazon S3 (Simple Storage Service)**, one of AWS's most widely used object storage services. Amazon S3 is well known for its virtually unlimited scalability, exceptional durability of **99.999999999% (11 nines)**, and cost-effective storage.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+However, one limitation has always existed for many traditional applications: **Amazon S3 is Object Storage, not File Storage**.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+Instead of opening a file using familiar operations such as `open()`, `read()`, or `write()`, developers must use the AWS SDK or REST APIs to interact with stored objects. For applications originally designed to work with traditional file systems, this can become a significant challenge.
 
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+To solve this problem, AWS introduced **Amazon S3 Files**, a new capability that allows Amazon S3 buckets to be accessed similarly to a traditional file system, making application development and migration to AWS much easier.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## What is Amazon S3 Files?
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Amazon S3 Files allows users to **mount an Amazon S3 bucket as a file system**, enabling applications to perform familiar file operations such as:
 
----
+- Read files
+- Write files
+- Rename files
+- Delete files
+- Browse directories
 
-## Technology Choices and Communication Scope
+Although applications interact with files in a familiar way, **the data is still stored as objects in Amazon S3**. Amazon S3 Files simply provides a file-system interface that allows applications to work with S3 data without requiring extensive AWS SDK integration.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+In other words, Amazon S3 Files acts as a bridge between **Object Storage** and **File Systems**.
 
 ---
 
-## The Pub/Sub Hub
+## What Challenges Did We Face Before?
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+For cloud-native applications, interacting with Amazon S3 through APIs is generally not a problem.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+However, many applications—including:
 
----
+- Legacy applications
+- Data processing tools
+- AI and Machine Learning frameworks
+- Traditional Linux software
 
-## Core Microservice
+were originally built to work with file systems instead of object storage.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+To overcome this limitation, many organizations deployed additional services such as:
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+- Amazon EFS
+- Amazon FSx
 
----
+They then synchronized data between File Storage and Amazon S3.
 
-## Front Door Microservice
+This approach often resulted in:
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+- Higher infrastructure costs
+- More complex system architectures
+- Increased operational overhead
+- More difficult scalability and maintenance
+
+Amazon S3 Files was introduced to simplify this architecture.
 
 ---
 
-## Staging ER7 Microservice
+# Key Benefits
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+## 1. Simplified Application Development
+
+Instead of using APIs to upload and download data, applications can directly access files through familiar file operations.
+
+This helps developers:
+
+- Write less code
+- Improve maintainability
+- Accelerate application development
 
 ---
 
-## New Features in the Solution
+## 2. Cost-Effective Storage
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Since data remains stored directly in Amazon S3, users continue to benefit from:
+
+- Low storage costs
+- Virtually unlimited scalability
+- Industry-leading durability
+
+In many scenarios, organizations can reduce or eliminate the need for separate file storage services.
+
+---
+
+## 3. Virtually Unlimited Scalability
+
+Amazon S3 has long been recognized for its ability to store massive amounts of data.
+
+Amazon S3 Files inherits this advantage, allowing applications to process large volumes of files without worrying about storage capacity.
+
+---
+
+## 4. Seamless Integration with the AWS Ecosystem
+
+Amazon S3 Files integrates well with many AWS services, including:
+
+- Amazon EC2
+- Amazon ECS
+- Amazon EKS
+- AI and Machine Learning services
+- Data analytics services
+
+This allows multiple applications to access the same dataset without maintaining multiple copies.
+
+---
+
+## Common Use Cases
+
+Amazon S3 Files is particularly suitable for:
+
+- AI and Machine Learning model training
+- Building Data Lakes
+- Large-scale data analytics
+- Image and video processing
+- Digital document storage
+- Running Kubernetes workloads on Amazon EKS
+- Migrating legacy applications to AWS with minimal code changes
+
+---
+
+## Things to Consider
+
+Although Amazon S3 Files provides a file system-like experience, **Amazon S3 remains an Object Storage service**.
+
+As a result, some behaviors and advanced features commonly found in traditional file systems may differ or may not yet be fully supported.
+
+Additionally, Amazon S3 Files is still a relatively new AWS capability. Before deploying it into production environments, users should carefully review the official AWS documentation and validate it with real-world workloads.
+
+---
+
+## Conclusion
+
+Amazon S3 Files represents an important step forward in bridging the gap between **Object Storage** and **File Storage**.
+
+By providing a familiar file-system interface while retaining the scalability, durability, and cost efficiency of Amazon S3, it enables organizations to simplify application development and storage architectures.
+
+For organizations building AI, Machine Learning, Data Analytics, or large-scale file processing solutions on AWS, Amazon S3 Files has the potential to reduce infrastructure complexity, lower operational costs, and accelerate development.
+
+If you are learning AWS or exploring cloud storage services, Amazon S3 Files is definitely a feature worth understanding and experimenting with.
+
+---
+
+## References
+
+- https://aws.amazon.com/blogs/aws/launching-s3-files-making-s3-buckets-accessible-as-file-systems/
