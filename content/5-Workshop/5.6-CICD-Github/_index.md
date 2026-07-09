@@ -1,48 +1,48 @@
 ---
-title: "Giai đoạn 6: Triển khai CI/CD (GitHub Actions)"
+title: "Phase 6: CI/CD Deployment (GitHub Actions)"
 date: 2024-01-01
 weight: 6
 chapter: false
 pre: " <b> 5.6 </b> "
 ---
 
-# Triển khai Tự động hóa CI/CD với GitHub Actions
+# CI/CD Automation with GitHub Actions
 
-CI/CD là "trái tim" của DevOps. Với GitHub Actions, mỗi khi Developer đẩy code mới lên nhánh `main`, hệ thống sẽ tự động làm hết mọi thứ: Build Frontend đẩy lên S3, Build Backend thành Container đẩy lên ECR và báo cho ECS tự động cập nhật bản mới. Không cần ai đụng tay vào!
-
----
-
-### Bước 1: Khai báo Biến bí mật (GitHub Secrets)
-
-Để GitHub có quyền truy cập vào AWS cũng như bảo mật các thông tin nhạy cảm, bạn cần vào tab **Settings -> Secrets and variables -> Actions** của từng Repository và tạo các biến (**New repository secret**) tương ứng:
-
-**1. Đối với Frontend (Next.js):**
-- `AWS_ACCESS_KEY_ID`: Mã Access Key của IAM User.
-- `AWS_SECRET_ACCESS_KEY`: Mã Secret Key của IAM User.
-
-**2. Đối với Backend (ECS Fargate):**
-- `AWS_ACCESS_KEY_ID` và `AWS_SECRET_ACCESS_KEY`: Để build và đẩy Docker Image.
-- Các biến môi trường của Spring Boot: `MONGODB_URI`, `JWT_SECRET`, `SES_SMTP_HOST`, `SES_SMTP_USER`, `SES_SMTP_PASS`, `GOOGLE_CLIENT_ID`, `CORS_ORIGINS`.
-- Liên kết với AI: `AI_EC2_PRIVATE_IP` (IP Private của máy EC2) và `LITELLM_MASTER_KEY`.
-
-**3. Đối với AI Engine (EC2):**
-- `AI_EC2_HOST`: Public IP của máy EC2 (để SSH vào).
-- `EC2_USER`: Mặc định là `ubuntu`.
-- `EC2_SSH_KEY`: Copy toàn bộ nội dung file `.pem` tải về lúc tạo EC2 dán vào đây.
-- Các Key AI: `GEMINI_API_KEY`, `GROQ_API_KEY`.
-- `BACKEND_API_URL`: URL để AI gọi ngược lại lấy dữ liệu từ Backend.
+CI/CD is the "heart" of DevOps. With GitHub Actions, whenever a Developer pushes new code to the `main` branch, the system automatically does everything: Builds the Frontend and pushes to S3, Builds the Backend into a Container, pushes to ECR, and tells ECS to auto-update to the new version. No human intervention needed!
 
 ---
 
-### Bước 2: Khai báo File Deploy (`deploy.yml`)
+### Step 1: Declare Secrets (GitHub Secrets)
 
-Thay vì thao tác thủ công, bạn chỉ cần tạo thư mục `.github/workflows` trong source code của mỗi repo, và thêm file `deploy.yml`. 
+For GitHub to access AWS and to secure sensitive information, you need to go to the **Settings -> Secrets and variables -> Actions** tab of each Repository and create the corresponding secrets (**New repository secret**):
 
-#### 1. Kịch bản của Frontend (S3 + CloudFront):
-File này thực hiện việc build Next.js ra tĩnh, đẩy lên S3 và xóa cache CDN.
+**1. For Frontend (Next.js):**
+- `AWS_ACCESS_KEY_ID`: The IAM User's Access Key.
+- `AWS_SECRET_ACCESS_KEY`: The IAM User's Secret Key.
+
+**2. For Backend (ECS Fargate):**
+- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`: To build and push Docker Images.
+- Spring Boot environment variables: `MONGODB_URI`, `JWT_SECRET`, `SES_SMTP_HOST`, `SES_SMTP_USER`, `SES_SMTP_PASS`, `GOOGLE_CLIENT_ID`, `CORS_ORIGINS`.
+- Link to AI: `AI_EC2_PRIVATE_IP` (Private IP of the EC2 machine) and `LITELLM_MASTER_KEY`.
+
+**3. For AI Engine (EC2):**
+- `AI_EC2_HOST`: Public IP of the EC2 machine (for SSH).
+- `EC2_USER`: Default is `ubuntu`.
+- `EC2_SSH_KEY`: Copy the entire content of the `.pem` file downloaded when creating EC2 and paste it here.
+- AI Keys: `GEMINI_API_KEY`, `GROQ_API_KEY`.
+- `BACKEND_API_URL`: URL for AI to call back to the Backend for data.
+
+---
+
+### Step 2: Declare Deploy File (`deploy.yml`)
+
+Instead of manual operations, you just need to create a `.github/workflows` folder in the source code of each repo, and add a `deploy.yml` file.
+
+#### 1. Frontend Script (S3 + CloudFront):
+This file builds Next.js statically, pushes to S3, and invalidates the CDN cache.
 
 <details>
-<summary><b>👉 Click để xem Code deploy.yml (Frontend)</b></summary>
+<summary><b>👉 Click to view deploy.yml Code (Frontend)</b></summary>
 
 ```yaml
 name: Deploy Frontend (S3 + CloudFront)
@@ -124,11 +124,11 @@ jobs:
 ```
 </details>
 
-#### 2. Kịch bản của Backend (ECS Fargate):
-File này tự động đăng nhập ECR, Build Docker Image, và khởi động lại Task trên ECS.
+#### 2. Backend Script (ECS Fargate):
+This file automatically logs into ECR, Builds the Docker Image, and restarts the Task on ECS.
 
 <details>
-<summary><b>👉 Click để xem Code deploy.yml (Backend)</b></summary>
+<summary><b>👉 Click to view deploy.yml Code (Backend)</b></summary>
 
 ```yaml
 name: Deploy Backend → ECR → ECS Fargate
@@ -215,11 +215,11 @@ jobs:
 ```
 </details>
 
-#### 3. Kịch bản của AI Engine (EC2 GPU):
-Dùng SSH để chui vào EC2, pull code mới về và gọi lệnh PM2 khởi động lại server.
+#### 3. AI Engine Script (EC2 GPU):
+Uses SSH to enter the EC2, pull new code, and call PM2 commands to restart the server.
 
 <details>
-<summary><b>👉 Click để xem Code deploy.yml (AI Engine)</b></summary>
+<summary><b>👉 Click to view deploy.yml Code (AI Engine)</b></summary>
 
 ```yaml
 name: Deploy AI Service → EC2 GPU
@@ -293,4 +293,4 @@ ENV_EOF
 
 ---
 
-Mỗi lần bạn code xong và ấn `git push origin main`, hãy mở tab **Actions** trên GitHub, ngồi nhâm nhi ly cà phê và ngắm nhìn bánh răng công nghệ tự động vận hành. Đó chính là sự ma thuật của CI/CD DevOps!
+Every time you finish coding and hit `git push origin main`, open the **Actions** tab on GitHub, sip some coffee, and watch the automated technology cogs turn. That is the magic of CI/CD DevOps!
