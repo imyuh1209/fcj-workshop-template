@@ -1,12 +1,12 @@
 ---
-title: "Triển khai Thực tế (Workshop)"
+title: "Workshop"
 date: 2024-01-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Hướng dẫn Triển khai AuraAcademic lên AWS (Step-by-Step)
+# Hướng dẫn Triển khai AuraAcademic lên AWS
 
 #### Tổng quan
 
@@ -21,6 +21,7 @@ Trong phần này, chúng ta sẽ bắt tay vào thực hành triển khai toàn
 </div>
 
 **Lưu ý quan trọng về Kiến trúc triển khai (Cost-Optimized vs Enterprise):**
+
 - **Sơ đồ kiến trúc (Enterprise):** Trong thiết kế lý thuyết, chúng ta sử dụng **Private Subnets** và **NAT Gateways** để đảm bảo bảo mật tối đa (High Security & High Availability).
 - **Triển khai thực tế (Cost-Optimized):** Do NAT Gateway có chi phí duy trì rất cao (~$86/tháng), trong bài thực hành này, chúng ta sẽ áp dụng **Kiến trúc Tối ưu chi phí cho sinh viên**. Các máy chủ ECS và EC2 sẽ được đặt trong **Public Subnets** và được bảo vệ nghiêm ngặt bằng **Security Groups (Tường lửa)**. Cách này giúp bạn hoàn thành đồ án xuất sắc với chi phí duy trì chỉ khoảng $30-$50/tháng (thậm chí chưa tới $10 nếu dùng Spot Instances).
 

@@ -1,12 +1,12 @@
 ---
-title: "Practical Deployment (Workshop)"
+title: "Workshop"
 date: 2024-01-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# AuraAcademic AWS Deployment Guide (Step-by-Step)
+# AuraAcademic AWS Deployment Guide
 
 #### Overview
 
@@ -21,6 +21,7 @@ In this section, we will practice deploying the entire **AuraAcademic** system a
 </div>
 
 **Important Note on Deployment Architecture (Cost-Optimized vs Enterprise):**
+
 - **Architecture Diagram (Enterprise):** In the theoretical design, we use **Private Subnets** and **NAT Gateways** to ensure maximum security (High Security & High Availability).
 - **Practical Deployment (Cost-Optimized):** Since NAT Gateways have a very high maintenance cost (~$86/month), in this workshop, we will apply a **Cost-Optimized Architecture for students**. The ECS and EC2 servers will be placed in **Public Subnets** and strictly protected by **Security Groups (Firewalls)**. This approach helps you complete your project excellently with a maintenance cost of only about $30-$50/month (or even less than $10 using Spot Instances).
 
