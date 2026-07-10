@@ -29,6 +29,7 @@ Amazon Virtual Private Cloud (VPC) is the heart of our AWS infrastructure networ
    - **VPC endpoints:** Select **None**.
 5. Click the **Create VPC** button and wait for AWS to automatically create the Subnets, Internet Gateway, and Route Tables.
 
+![Create VPC](/images/5-Workshop/5.2-VPC-Network/5.2-vpc-step1.png)
 ---
 
 ### Step 2: Enable "Auto-assign public IP" for Public Subnets
@@ -42,6 +43,7 @@ For virtual machines (EC2) or Containers (ECS) located in the Public Subnet to a
 5. Repeat exact steps 2-4 for the second public subnet: **`aura-academic-subnet-public2-ap-southeast-1b`**.
 *(Note: Never enable this feature for the 2 subnets with `private` in their names).*
 
+![Auto assign IP](/images/5-Workshop/5.2-VPC-Network/5.2-vpc-step2.png)
 ---
 
 ### Step 3: Set up Security Groups (Firewall)
@@ -53,11 +55,15 @@ Since all resources are located in the Public Subnet, the Security Group (SG) ac
    - Name: `aura-academic-alb-sg`
    - VPC: Select the newly created `aura-academic` VPC.
    - Inbound rules: Allow `HTTP` (Port 80) and `HTTPS` (Port 443) from `Anywhere-IPv4`.
+
+![ALB Security Group](/images/5-Workshop/5.2-VPC-Network/5.2-vpc-step3-alb.png)
 3. **ECS Backend Security Group:**
    - Name: `aura-academic-ecs-sg`
    - VPC: Select `aura-academic` VPC.
    - Inbound rules: 
      - Custom TCP, Port `8080`, Source: Click the magnifying glass icon and type `alb`, then select **`aura-academic-alb-sg`** (Only allow traffic from ALB into Backend, strictly block direct internet access).
+
+![ECS Security Group](/images/5-Workshop/5.2-VPC-Network/5.2-vpc-step3-ecs.png)
 4. **EC2 GPU Security Group (For AI):**
    - Name: `aura-academic-ai-sg`
    - VPC: Select `aura-academic` VPC.
@@ -65,6 +71,8 @@ Since all resources are located in the Public Subnet, the Security Group (SG) ac
      - Custom TCP, Port `8001`, Source: Click the magnifying glass icon and type `alb`, then select **`aura-academic-alb-sg`** (For WebSockets from ALB).
      - Custom TCP, Port `4000`, Source: Click the magnifying glass icon and type `ecs`, then select **`aura-academic-ecs-sg`** (For internal API from Backend).
      - (There is NO NEED to open Port 22 for SSH, because we will use AWS Systems Manager (Session Manager) to securely connect to the Private Subnet).
+
+![EC2 AI Security Group](/images/5-Workshop/5.2-VPC-Network/5.2-vpc-step3-ec2.png)
 ---
 
 At this point, the super cost-effective and secure network backbone of the system is ready! We can move on to the [Next Stage](../5.3-ecs-backend) to configure the Backend.
