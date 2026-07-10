@@ -1,0 +1,11 @@
+{{- $dest := .Destination -}}
+{{- if (urls.Parse $dest).IsAbs -}}
+  <img src="{{ $dest }}" alt="{{ .Text }}" />
+{{- else -}}
+  {{- $resource := .Page.Resources.GetMatch $dest -}}
+  {{- if $resource -}}
+    <img src="{{ $resource.RelPermalink }}" alt="{{ .Text }}" />
+  {{- else -}}
+    <img src="{{ strings.TrimPrefix "/" $dest | relURL }}" alt="{{ .Text }}" />
+  {{- end -}}
+{{- end -}}
