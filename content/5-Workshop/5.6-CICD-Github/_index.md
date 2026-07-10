@@ -17,15 +17,18 @@ CI/CD is the "heart" of DevOps. With GitHub Actions, whenever a Developer pushes
 For GitHub to access AWS and to secure sensitive information, you need to go to the **Settings -> Secrets and variables -> Actions** tab of each Repository and create the corresponding secrets (**New repository secret**):
 
 **1. For Frontend (Next.js):**
+
 - `AWS_ACCESS_KEY_ID`: The IAM User's Access Key.
 - `AWS_SECRET_ACCESS_KEY`: The IAM User's Secret Key.
 
 **2. For Backend (ECS Fargate):**
+
 - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`: To build and push Docker Images.
 - Spring Boot environment variables: `MONGODB_URI`, `JWT_SECRET`, `SES_SMTP_HOST`, `SES_SMTP_USER`, `SES_SMTP_PASS`, `GOOGLE_CLIENT_ID`, `CORS_ORIGINS`.
 - Link to AI: `AI_EC2_PRIVATE_IP` (Private IP of the EC2 machine) and `LITELLM_MASTER_KEY`.
 
 **3. For AI Engine (EC2):**
+
 - `AI_EC2_HOST`: Public IP of the EC2 machine (for SSH).
 - `EC2_USER`: Default is `ubuntu`.
 - `EC2_SSH_KEY`: Copy the entire content of the `.pem` file downloaded when creating EC2 and paste it here.
@@ -39,6 +42,7 @@ For GitHub to access AWS and to secure sensitive information, you need to go to 
 Instead of manual operations, you just need to create a `.github/workflows` folder in the source code of each repo, and add a `deploy.yml` file.
 
 #### 1. Frontend Script (S3 + CloudFront):
+
 This file builds Next.js statically, pushes to S3, and invalidates the CDN cache.
 
 <details>
@@ -64,8 +68,8 @@ jobs:
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -85,7 +89,7 @@ jobs:
           npm run build
           mkdir -p out
           echo '<meta http-equiv="refresh" content="0; url=/vi" />' > out/index.html
-          
+
           find out -name "index.txt" | while read -r file; do
             dir=$(dirname "$file")
             if [ "$dir" != "out" ]; then
@@ -122,9 +126,11 @@ jobs:
       - name: ✅ Deploy complete
         run: echo "Frontend deployed to https://${{ secrets.CLOUDFRONT_DOMAIN }}"
 ```
+
 </details>
 
 #### 2. Backend Script (ECS Fargate):
+
 This file automatically logs into ECR, Builds the Docker Image, and restarts the Task on ECS.
 
 <details>
@@ -213,9 +219,11 @@ jobs:
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
 ```
+
 </details>
 
 #### 3. AI Engine Script (EC2 GPU):
+
 Uses SSH to enter the EC2, pull new code, and call PM2 commands to restart the server.
 
 <details>
@@ -261,7 +269,7 @@ jobs:
                 sudo npm install -g pm2
               fi
             fi
-            
+
             cd /opt/aura-ai
             git fetch origin main
             git reset --hard origin/main
@@ -281,7 +289,7 @@ jobs:
             GROQ_API_KEY_4=${{ secrets.GROQ_API_KEY }}
             GROQ_API_KEY_5=${{ secrets.GROQ_API_KEY }}
 ENV_EOF
-            
+
             pm2 delete aura-ai || true
             pm2 start bash --name "aura-ai" -- -c 'cd /opt/aura-ai && source venv/bin/activate && export BACKEND_API_URL="${{ secrets.BACKEND_API_URL }}" && python main.py'
 
@@ -289,8 +297,7 @@ ENV_EOF
             pm2 start bash --name "aura-litellm" -- -c 'cd /opt/aura-ai && source venv/bin/activate && set -a && source .env && set +a && litellm --config litellm_config.yaml --port 4000'
             pm2 save
 ```
+
 </details>
 
 ---
-
-Every time you finish coding and hit `git push origin main`, open the **Actions** tab on GitHub, sip some coffee, and watch the automated technology cogs turn. That is the magic of CI/CD DevOps!

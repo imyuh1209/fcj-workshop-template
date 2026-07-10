@@ -20,7 +20,7 @@ Mảng Frontend của ứng dụng (Next.js) sẽ được build ra các tệp t
 4. Ở mục **Block Public Access**, giữ nguyên dấu tick **Block all public access**. Hệ thống sẽ khóa chặt bucket này lại, chỉ cho phép CloudFront được chui vào lấy file (Bảo mật Enterprise).
 5. Cuộn xuống dưới cùng và nhấn **Create bucket**.
 
-![Create S3](/images/5-Workshop/5.5-s3-step1.png)
+![Create S3](/images/5-Workshop/5.5-S3-CloudFront-Frontend/5.5-s3-step1.png)
 
 ---
 
@@ -36,31 +36,29 @@ Vì hệ thống Backend cũ đã bị gỡ bỏ, bạn cần khai báo cho Fron
 npm install
 npm run build
 ```
-Lệnh trên sẽ tự động nén toàn bộ giao diện thành các tệp tin tĩnh (HTML, CSS, JS) và đưa vào thư mục `out/`.
-4. Mở AWS Console S3, upload **toàn bộ nội dung bên trong thư mục `out/`** vào S3 Bucket vừa tạo.
 
-![Upload S3](/images/5-Workshop/5.5-s3-step2.png)
+Lệnh trên sẽ tự động nén toàn bộ giao diện thành các tệp tin tĩnh (HTML, CSS, JS) và đưa vào thư mục `out/`. 4. Mở AWS Console S3, upload **toàn bộ nội dung bên trong thư mục `out/`** vào S3 Bucket vừa tạo.
 
 ---
 
 ### Bước 3: Tạo Mạng phân phối CDN (CloudFront)
 
-*(Giao diện CloudFront mới của AWS 2024)*
+_(Giao diện CloudFront mới của AWS 2024)_
 
 1. Truy cập dịch vụ **CloudFront**, nhấn **Create distribution**.
-2. **Step 1 - Choose a plan**: Chọn gói **Free ($0/month)**. Bấm *Next*.
-3. **Step 2 - Get started**: Ở mục **Distribution name**, bạn đặt tên là `aura-academic-fe-cdn`. Bấm *Next*.
-4. **Step 3 - Specify origin**: 
+2. **Step 1 - Choose a plan**: Chọn gói **Free ($0/month)**. Bấm _Next_.
+3. **Step 2 - Get started**: Ở mục **Distribution name**, bạn đặt tên là `aura-academic-fe-cdn`. Bấm _Next_.
+4. **Step 3 - Specify origin**:
    - **Origin type**: Chọn **Amazon S3**.
-   - **S3 origin**: Bấm nút **Browse S3** và chọn bucket của bạn. *(Lưu ý: Bỏ qua nút cảnh báo "Use website endpoint" màu vàng nếu có, ta bắt buộc phải dùng bucket endpoint để giữ bảo mật private cho S3)*.
-   - Cuộn xuống phần **Origin access**: Cực kỳ quan trọng. Chọn **Origin access control settings (recommended)** -> Nhấn **Create control setting** -> **Create**. 
-   - Cuối cùng bấm *Next*.
-5. **Step 4 - Enable security**: Để nguyên cấu hình bảo mật WAF mặc định. Bấm *Next*.
-6. **Step 5 - Review and create**: 
+   - **S3 origin**: Bấm nút **Browse S3** và chọn bucket của bạn. _(Lưu ý: Bỏ qua nút cảnh báo "Use website endpoint" màu vàng nếu có, ta bắt buộc phải dùng bucket endpoint để giữ bảo mật private cho S3)_.
+   - Cuộn xuống phần **Origin access**: Cực kỳ quan trọng. Chọn **Origin access control settings (recommended)** -> Nhấn **Create control setting** -> **Create**.
+   - Cuối cùng bấm _Next_.
+5. **Step 4 - Enable security**: Để nguyên cấu hình bảo mật WAF mặc định. Bấm _Next_.
+6. **Step 5 - Review and create**:
    - Nhờ tính năng mới của AWS, CloudFront sẽ tự động cập nhật Policy cho S3 Bucket luôn nên ta không cần làm bằng tay nữa.
    - Bạn chỉ việc nhấn **Create distribution** ở dưới cùng.
 
-![Create CloudFront](/images/5-Workshop/5.5-s3-step3.png)
+![Create CloudFront](/images/5-Workshop/5.5-S3-CloudFront-Frontend/5.5-s3-step3.png)
 
 ---
 
@@ -69,21 +67,19 @@ Lệnh trên sẽ tự động nén toàn bộ giao diện thành các tệp tin
 Vì giao diện tạo nhanh của AWS đã ẩn đi một số cài đặt, chúng ta cần bổ sung thủ công sau khi tạo xong:
 
 **1. Khai báo file trang chủ (Default Root Object):**
+
 - Tại trang chi tiết của CloudFront vừa tạo, ở tab **General**, bấm nút **Edit** ở mục Settings.
 - Kéo xuống mục **Default root object**, gõ vào chữ `index.html`. Bấm **Save changes**.
 
 **2. Ép trình duyệt dùng HTTPS (Để bật được Camera):**
-- Chuyển sang tab **Behaviors**.
-- Tick chọn cái behavior duy nhất đang có (Default (*)), rồi bấm **Edit**.
-- Kéo xuống mục **Viewer protocol policy**, đổi từ *HTTP and HTTPS* sang **Redirect HTTP to HTTPS**. Bấm **Save changes**.
 
-![CloudFront Config](/images/5-Workshop/5.5-s3-step4.png)
+- Chuyển sang tab **Behaviors**.
+- Tick chọn cái behavior duy nhất đang có (Default (\*)), rồi bấm **Edit**.
+- Kéo xuống mục **Viewer protocol policy**, đổi từ _HTTP and HTTPS_ sang **Redirect HTTP to HTTPS**. Bấm **Save changes**.
 
 ---
 
 ### Bước 5: Kiểm tra Website thành quả
 
-Trở lại giao diện CloudFront, copy đường dẫn ở mục **Distribution domain name** (Ví dụ: `d1234abcd.cloudfront.net`). 
+Trở lại giao diện CloudFront, copy đường dẫn ở mục **Distribution domain name** (Ví dụ: `d1234abcd.cloudfront.net`).
 Dán vào trình duyệt, bạn sẽ thấy ứng dụng Web của mình hiện lên mượt mà với ổ khóa bảo mật HTTPS, sẵn sàng cho luồng Camera.
-
-![Verify HTTPS](/images/5-Workshop/5.5-s3-step5.png)

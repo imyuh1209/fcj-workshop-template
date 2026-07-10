@@ -1,5 +1,5 @@
 ---
-title: "Saturday Meet up"
+title: "Saturday Meet up 6/6"
 date: 2026-06-06
 weight: 2
 chapter: false
@@ -148,4 +148,10 @@ Các phần chia sẻ không chỉ cung cấp kiến thức kỹ thuật về Cl
 
 ---
 
-## Một số hình ảnh khi tham gia sự kiện
+## Ảnh minh chứng
+
+<div align="center">
+
+![Ảnh minh chứng](/images/4-events/event2.png)
+
+</div>

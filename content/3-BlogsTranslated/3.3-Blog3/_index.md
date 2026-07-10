@@ -1,126 +1,48 @@
 ---
-title: "Blog 3"
-date: 2024-01-01
-weight: 1
+title: "AWS Security Agent: A single agent covering the entire application development lifecycle"
+date: 2026-06-15
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+One of the eternal problems in security is that it is often isolated from the development process: designers design, developers write code, and only then does the security team review it—usually when it is too late and expensive to fix. AWS Security Agent (part of AWS Continuum) is trying to eliminate that gap by embedding security across three stages: during design, during coding, and during deployment—all within a single agentic service.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+The latest update (mid-June 2026) introduces threat modeling, expands code review to multiple Git platforms, and allows everything to run directly within the IDE. Here are the highlights.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+## Threat modeling: Integrating security from the design phase
 
----
+This is a new and perhaps the most notable feature. Instead of waiting for the code to run before scanning for vulnerabilities, the Security Agent directly reads design documents or source code, reconstructing the data flow, architecture, and trust boundaries of the application. From there, it identifies potential threat actors and attack vectors, prioritizing which threats need to be addressed first based on the STRIDE framework (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege).
 
-## Architecture Guidance
+The great thing is that it works right from the design phase—when the cost of fixing a vulnerability is still cheap, without the need to refactor already shipped code.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+## Code review: Expanding platforms, deeper pattern-matching
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+Previously, the Security Agent could only scan on GitHub. Now, it has added support for GitLab and Bitbucket (both SaaS and self-hosted versions), along with the ability to pull documentation from Confluence for review context.
 
-**The solution architecture is now as follows:**
+Its review methodology is not simply matching known error patterns like traditional linters. Instead, it uses reasoning to find complex vulnerabilities, checks them against the organization's specific security requirements, and crucially, validates them in a simulation environment to confirm if the vulnerability is actually exploitable. This avoids flooding developers with false positives that waste their time.
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+Furthermore, design reviews have been upgraded with built-in compliance packs (AWS Well-Architected Framework, NIST CSF, PCI DSS, etc.) or the ability to import custom security requirements from internal documents. Every finding maps back to the compliance posture, keeping the team audit-ready at all times.
 
----
+## Running directly in the IDE without switching tabs
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+This solves a very real pain point: previously, developers had to leave the IDE and open a separate console to view findings or threat models. Now, with Kiro power, the Claude Code plugin (officially named: AWS Agents for DevSecOps), and MCP integration open to any AI IDE, everything runs right inside the editor using natural prompts, for example:
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+- `"Run a full security scan on this repo"` → scans the entire repository
+- `"Build a threat model for this application"` → saves the threat model to `.security-agent/threat_model.md` in the workspace
+- `"help me remediate my findings"` → the agent pulls findings, prioritizes the most severe ones, and immediately opens a bugfix session to resolve them
 
----
+This approach makes sense: the security agent is not trying to replace the developer, but rather trying to "meet" the developer right where they are working.
 
-## Technology Choices and Communication Scope
+## A few notes when testing
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+The upgraded threat modeling and code review features are currently in Preview, so their behavior might change. If you want to try it out, the Security Agent offers a 2-month free trial—but you should still monitor your account and credits carefully to avoid unexpected costs. Also, remember: the agent reads source code directly to build the threat model, so if your repository contains secrets or credentials, you should clean them before letting the agent scan.
+
+## Conclusion
+
+Overall, the direction of AWS Security Agent is to transform security from an isolated, final check into a continuous part of the workflow—from the design document, through each pull request, to deployment. For those working on projects that handle sensitive data (like uploading user photos/videos), this is a tool worth trying to better protect your system and practice systematic threat modeling thinking.
 
 ---
 
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+## References
+- [AWS Security Agent adds threat modeling, Kiro power, and Claude Code plugin, and more](https://aws.amazon.com/vi/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/)

@@ -12,6 +12,14 @@ pre: " <b> 5. </b> "
 
 In this section, we will practice deploying the entire **AuraAcademic** system architecture to the actual Amazon Web Services (AWS) cloud computing environment.
 
+<div align="center">
+
+![Architecture Diagram](/images/5-Workshop/BanFINAL.drawio.png)
+
+**Architecture Diagram: AuraAcademic System Deployment on AWS**
+
+</div>
+
 **Important Note on Deployment Architecture (Cost-Optimized vs Enterprise):**
 - **Architecture Diagram (Enterprise):** In the theoretical design, we use **Private Subnets** and **NAT Gateways** to ensure maximum security (High Security & High Availability).
 - **Practical Deployment (Cost-Optimized):** Since NAT Gateways have a very high maintenance cost (~$86/month), in this workshop, we will apply a **Cost-Optimized Architecture for students**. The ECS and EC2 servers will be placed in **Public Subnets** and strictly protected by **Security Groups (Firewalls)**. This approach helps you complete your project excellently with a maintenance cost of only about $30-$50/month (or even less than $10 using Spot Instances).

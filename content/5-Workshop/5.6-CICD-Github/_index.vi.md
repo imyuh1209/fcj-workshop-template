@@ -17,18 +17,21 @@ CI/CD là "trái tim" của DevOps. Với GitHub Actions, mỗi khi Developer đ
 Để GitHub có quyền truy cập vào AWS cũng như bảo mật các thông tin nhạy cảm, bạn cần vào tab **Settings -> Secrets and variables -> Actions** của từng Repository và tạo các biến (**New repository secret**) tương ứng:
 
 **1. Đối với Frontend (Next.js):**
+
 - `AWS_ACCESS_KEY_ID`: Mã Access Key của IAM User.
 - `AWS_SECRET_ACCESS_KEY`: Mã Secret Key của IAM User.
 
 **2. Đối với Backend (ECS Fargate):**
+
 - `AWS_ACCESS_KEY_ID` và `AWS_SECRET_ACCESS_KEY`: Để build và đẩy Docker Image.
 - Các biến môi trường của Spring Boot: `MONGODB_URI`, `JWT_SECRET`, `SES_SMTP_HOST`, `SES_SMTP_USER`, `SES_SMTP_PASS`, `GOOGLE_CLIENT_ID`, `CORS_ORIGINS`.
 - Liên kết với AI: `AI_EC2_PRIVATE_IP` (IP Private của máy EC2) và `LITELLM_MASTER_KEY`.
 
 **3. Đối với AI Engine (EC2):**
-- `AI_EC2_HOST`: Public IP của máy EC2 (để SSH vào).
-- `EC2_USER`: Mặc định là `ubuntu`.
-- `EC2_SSH_KEY`: Copy toàn bộ nội dung file `.pem` tải về lúc tạo EC2 dán vào đây.
+
+- `AWS_ACCESS_KEY_ID`: Mã Access Key (Để dùng quyền SSM gọi vào AWS).
+- `AWS_SECRET_ACCESS_KEY`: Mã Secret Key.
+- `AI_EC2_INSTANCE_ID`: Lấy cái ID của máy ảo EC2 AI (VD: `i-0101a388d12922f46`).
 - Các Key AI: `GEMINI_API_KEY`, `GROQ_API_KEY`.
 - `BACKEND_API_URL`: URL để AI gọi ngược lại lấy dữ liệu từ Backend.
 
@@ -36,9 +39,10 @@ CI/CD là "trái tim" của DevOps. Với GitHub Actions, mỗi khi Developer đ
 
 ### Bước 2: Khai báo File Deploy (`deploy.yml`)
 
-Thay vì thao tác thủ công, bạn chỉ cần tạo thư mục `.github/workflows` trong source code của mỗi repo, và thêm file `deploy.yml`. 
+Thay vì thao tác thủ công, bạn chỉ cần tạo thư mục `.github/workflows` trong source code của mỗi repo, và thêm file `deploy.yml`.
 
 #### 1. Kịch bản của Frontend (S3 + CloudFront):
+
 File này thực hiện việc build Next.js ra tĩnh, đẩy lên S3 và xóa cache CDN.
 
 <details>
@@ -64,8 +68,8 @@ jobs:
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -85,7 +89,7 @@ jobs:
           npm run build
           mkdir -p out
           echo '<meta http-equiv="refresh" content="0; url=/vi" />' > out/index.html
-          
+
           find out -name "index.txt" | while read -r file; do
             dir=$(dirname "$file")
             if [ "$dir" != "out" ]; then
@@ -122,9 +126,11 @@ jobs:
       - name: ✅ Deploy complete
         run: echo "Frontend deployed to https://${{ secrets.CLOUDFRONT_DOMAIN }}"
 ```
+
 </details>
 
 #### 2. Kịch bản của Backend (ECS Fargate):
+
 File này tự động đăng nhập ECR, Build Docker Image, và khởi động lại Task trên ECS.
 
 <details>
@@ -213,9 +219,11 @@ jobs:
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
 ```
+
 </details>
 
 #### 3. Kịch bản của AI Engine (EC2 GPU):
+
 Dùng SSH để chui vào EC2, pull code mới về và gọi lệnh PM2 khởi động lại server.
 
 <details>
@@ -261,7 +269,7 @@ jobs:
                 sudo npm install -g pm2
               fi
             fi
-            
+
             cd /opt/aura-ai
             git fetch origin main
             git reset --hard origin/main
@@ -281,7 +289,7 @@ jobs:
             GROQ_API_KEY_4=${{ secrets.GROQ_API_KEY }}
             GROQ_API_KEY_5=${{ secrets.GROQ_API_KEY }}
 ENV_EOF
-            
+
             pm2 delete aura-ai || true
             pm2 start bash --name "aura-ai" -- -c 'cd /opt/aura-ai && source venv/bin/activate && export BACKEND_API_URL="${{ secrets.BACKEND_API_URL }}" && python main.py'
 
@@ -289,8 +297,7 @@ ENV_EOF
             pm2 start bash --name "aura-litellm" -- -c 'cd /opt/aura-ai && source venv/bin/activate && set -a && source .env && set +a && litellm --config litellm_config.yaml --port 4000'
             pm2 save
 ```
+
 </details>
 
 ---
-
-Mỗi lần bạn code xong và ấn `git push origin main`, hãy mở tab **Actions** trên GitHub, ngồi nhâm nhi ly cà phê và ngắm nhìn bánh răng công nghệ tự động vận hành. Đó chính là sự ma thuật của CI/CD DevOps!

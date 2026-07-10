@@ -1,5 +1,5 @@
 ---
-title: "Saturday Meet up"
+title: "Saturday Meet up 6/6"
 date: 2026-06-06
 weight: 2
 chapter: false
@@ -148,6 +148,10 @@ Especially, topics related to Docker, AWS, Machine Learning, and Cloud/DevOps ar
 
 ---
 
-## Some Images from the Event
+## Proof Images
 
-_Add event participation images here_
+<div align="center">
+
+![Proof Image](/images/4-events/event2.png)
+
+</div>
