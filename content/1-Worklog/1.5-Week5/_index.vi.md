@@ -21,7 +21,7 @@ pre: " <b> 1.5. </b> "
 | 2   | - Họp nhóm <br> - Phân chia nhiệm vụ <br> - Xây dựng kiến trúc tổng quan cho project        | 18/05/2026   | 18/05/2026      |                                         |
 | 4   | - Tìm hiểu tối ưu hiệu năng với Amazon CloudFront <br> - Áp dụng vào kiến trúc project      | 20/05/2026   | 20/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | 5   | - Tiếp tục phát triển các chức năng của project <br> - Kiểm tra và xử lý lỗi phát sinh      | 21/05/2026   | 21/05/2026      |                                         |
-| 6   | - Tổng hợp kết quả thực hiện <br> - Hoàn thiện tài liệu và kế hoạch cho giai đoạn tiếp theo | 22/05/2026   | 22/05/2026      |                                         |
+| 6   | - Hoàn thiện tài liệu và kế hoạch cho giai đoạn tiếp theo <br> - Cập nhật tiến độ công việc | 22/05/2026   | 22/05/2026      |                                         |
 
 ---
 

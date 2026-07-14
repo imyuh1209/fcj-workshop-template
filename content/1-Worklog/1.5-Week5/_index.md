@@ -21,7 +21,7 @@ pre: " <b> 1.5. </b> "
 | Mon | - Team meeting <br> - Assign project tasks <br> - Design the overall project architecture                              | 18/05/2026 | 18/05/2026      |                                         |
 | Wed | - Learn performance optimization with Amazon CloudFront <br> - Apply optimization concepts to the project architecture | 20/05/2026 | 20/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | Thu | - Continue developing project features <br> - Test and fix issues during development                                   | 21/05/2026 | 21/05/2026      |                                         |
-| Fri | - Summarize implementation results <br> - Update project documentation and prepare the next development plan           | 22/05/2026 | 22/05/2026      |                                         |
+| Fri | - Update project documentation and prepare the next development plan <br> - Update work progress                       | 22/05/2026 | 22/05/2026      |                                         |
 
 ---
 

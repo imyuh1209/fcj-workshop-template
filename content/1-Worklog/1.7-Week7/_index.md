@@ -23,7 +23,7 @@ pre: " <b> 1.7. </b> "
 | Tue | - Continue developing the team project <br> - Complete assigned features                                                                                                                                                                                                   | 02/06/2026 | 02/06/2026      |           |
 | Wed | - Test and fix issues <br> - Update the source code and synchronize progress with the team                                                                                                                                                                                 | 03/06/2026 | 03/06/2026      |           |
 | Fri | - Update the workshop documentation <br> - Review project progress and prepare the weekly report                                                                                                                                                                           | 05/06/2026 | 05/06/2026      |           |
-| Sat | - Attend the First Cloud Journey meeting <br> - Learn about Docker <br> - Learn about AWS WAF combined with Machine Learning for cyber attack detection <br> - Learn about Godot Engine <br> - Listen to a career-sharing session from IT Helpdesk to System Administrator | 06/06/2026 | 06/06/2026      |           |
+| Sat | - Attend the First Cloud Journey meeting <br> - Learn about Docker <br> - Learn about AWS WAF combined with Machine Learning for cyber attack detection <br> - Learn about Godot Engine <br> - Listen to a career-sharing session from IT Helpdesk to System Administrator <br> - Update work progress | 06/06/2026 | 06/06/2026      |           |
 
 ---
 

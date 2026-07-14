@@ -23,7 +23,7 @@ pre: " <b> 1.8. </b> "
 | 3   | - Kiểm tra, sửa lỗi và tối ưu trải nghiệm sử dụng hệ thống                   | 09/06/2026   | 09/06/2026      |                |
 | 4   | - Hoàn thiện kiến trúc triển khai <br> - Cập nhật sơ đồ hệ thống             | 10/06/2026   | 10/06/2026      |                |
 | 5   | - Hoàn thiện tài liệu workshop <br> - Bổ sung hình ảnh và nội dung hướng dẫn | 11/06/2026   | 11/06/2026      |                |
-| 6   | - Tổng hợp tiến độ dự án <br> - Hoàn thiện báo cáo tuần                      | 12/06/2026   | 12/06/2026      |                |
+| 6   | - Tổng hợp tiến độ dự án <br> - Cập nhật tiến độ công việc                   | 12/06/2026   | 12/06/2026      |                |
 
 ---
 

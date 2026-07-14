@@ -24,41 +24,27 @@ pre: " <b> 1.3. </b> "
 | Tuesday   | - Create and configure Amazon RDS <br> - Connect the application to the database <br> - Practice backup and restore           | 02/05/2026 | 02/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | Wednesday | - Attend the internship at the company <br> - Discuss the project direction with the team <br> - Continue practicing AWS labs | 06/05/2026 | 06/05/2026      |                                         |
 | Thursday  | - Learn Amazon Lightsail Containers <br> - Practice Amazon EC2 Auto Scaling <br> - Monitor resources using Amazon CloudWatch  | 04/05/2026 | 04/05/2026      | https://cloudjourney.awsstudygroup.com/ |
-| Friday    | - Manage DNS with Amazon Route 53 <br> - Practice AWS CLI <br> - Learn the basics of Amazon DynamoDB                          | 05/05/2026 | 05/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Friday    | - Manage DNS with Amazon Route 53 <br> - Practice AWS CLI <br> - Learn the basics of Amazon DynamoDB <br> - Update work progress | 05/05/2026 | 05/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 
 ### Achievements
 
-- Practiced hosting a static website using Amazon S3 and Amazon CloudFront for content delivery.
-
-- Created and configured Amazon RDS:
-  - Connected the application to the database
-  - Performed database backup and restore
-
-- Learned about the following AWS services:
-  - Amazon Lightsail Containers
-  - Amazon EC2 Auto Scaling
-  - Amazon CloudWatch
-
-- Practiced DNS management with Amazon Route 53 and used AWS CLI to manage AWS resources.
-
-- Became familiar with Amazon DynamoDB and basic NoSQL database operations.
-
-- Participated in the internship at the company, discussed the project direction with the team, and planned the next development phases.
+- Successfully initialized and configured Static Website Hosting on Amazon S3.
+- Configured and deployed Amazon RDS, successfully connecting the application to the database.
+- Mastered the concepts of Amazon Lightsail Containers and Amazon EC2 Auto Scaling.
+- Set up resource tracking and system monitoring using Amazon CloudWatch.
+- Practiced Domain Name System (DNS) management with Amazon Route 53.
+- Became familiar with NoSQL databases (Amazon DynamoDB) and utilized AWS CLI.
+- Directly participated in the company internship and finalized the project development direction with the team.
 
 ---
 
 ### Self-evaluation
 
-- Successfully completed the learning activities related to AWS Storage, Database, Monitoring, and Networking services.
-
-- Learned more about deploying static websites and connecting applications to cloud databases.
-
-- Learned how to use AWS services for scaling and monitoring cloud applications.
-
-- Improved AWS CLI skills and gained basic experience with Amazon DynamoDB.
-
-- Gained practical working experience at the company and prepared for the project development phase.
+- Completed all practical labs covering Hosting (S3), Databases (RDS, DynamoDB), and Networking (Route 53).
+- Fully understood how to monitor systems and automatically scale resources via CloudWatch and Auto Scaling.
+- Demonstrated effective teamwork by proactively communicating to plan and orient the real-world project.
+- Grasped the concepts well and feel ready for more advanced application deployment stages on the AWS platform.
 
 ---

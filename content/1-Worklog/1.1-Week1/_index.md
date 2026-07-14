@@ -18,13 +18,13 @@ pre: " <b> 1.1. </b> "
 
 ### Weekly Tasks
 
-| Day       | Tasks                                                                                                                                                     | Start Date | Completion Date | Reference                               |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
-| Monday    | - Meet FCAJ members <br> - Read the internship regulations <br> - Learn the internship workflow and reporting requirements                                | 20/04/2026 | 20/04/2026      |                                         |
-| Tuesday   | - Create an AWS Free Tier account <br> - Explore AWS Management Console <br> - Get familiar with the AWS service interface                                | 21/04/2026 | 21/04/2026      | https://cloudjourney.awsstudygroup.com/ |
-| Wednesday | - Configure AWS Budgets <br> - Set up email cost alerts <br> - Learn factors affecting AWS costs                                                          | 22/04/2026 | 22/04/2026      | https://cloudjourney.awsstudygroup.com/ |
-| Thursday  | - Learn about AWS Support <br> - Explore support plans (Basic, Developer, Business, Enterprise) <br> - Practice creating a support case                   | 23/04/2026 | 23/04/2026      | https://cloudjourney.awsstudygroup.com/ |
-| Friday    | - Learn AWS IAM: User, Group, Role, and Policy <br> - Practice creating IAM Users and assigning permissions <br> - Learn the Principle of Least Privilege | 24/04/2026 | 24/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Day       | Tasks                                                                                                                                   | Start Date | Completion Date | Reference                               |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
+| Monday    | - Meet FCAJ members <br> - Read the internship regulations <br> - Learn the internship workflow and reporting requirements              | 20/04/2026 | 20/04/2026      |                                         |
+| Tuesday   | - Create an AWS Free Tier account <br> - Explore AWS Management Console <br> - Get familiar with the AWS service interface              | 21/04/2026 | 21/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Wednesday | - Configure AWS Budgets <br> - Set up email cost alerts <br> - Learn factors affecting AWS costs                                        | 22/04/2026 | 22/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Thursday  | - Learn about AWS Support <br> - Explore support plans (Basic, Developer, Business, Enterprise) <br> - Practice creating a support case | 23/04/2026 | 23/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Friday    | - Learn AWS IAM: User, Group, Role, and Policy <br> - Practice creating IAM Users and assigning permissions <br> - Update work progress | 24/04/2026 | 24/04/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 

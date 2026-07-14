@@ -24,7 +24,7 @@ pre: " <b> 1.1. </b> "
 | 3   | - Tạo mới tài khoản AWS Free Tier <br> - Khám phá AWS Management Console <br> - Làm quen giao diện các dịch vụ chính            | 21/04/2026   | 21/04/2026      | https://cloudjourney.awsstudygroup.com/ |
 | 4   | - Thiết lập AWS Budgets <br> - Cấu hình cảnh báo chi phí qua email <br> - Tìm hiểu các yếu tố ảnh hưởng đến chi phí             | 22/04/2026   | 22/04/2026      | https://cloudjourney.awsstudygroup.com/ |
 | 5   | - Tìm hiểu AWS Support <br> - Các gói hỗ trợ (Basic, Developer, Business, Enterprise) <br> - Thực hành tạo support case mẫu     | 23/04/2026   | 23/04/2026      | https://cloudjourney.awsstudygroup.com/ |
-| 6   | - Tìm hiểu IAM: User, Group, Role, Policy <br> - Thực hành tạo User và phân quyền <br> - Tìm hiểu nguyên tắc Least Privilege    | 24/04/2026   | 24/04/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 6   | - Tìm hiểu IAM: User, Group, Role, Policy <br> - Thực hành tạo User và phân quyền <br> - Cập nhật tiến độ công việc             | 24/04/2026   | 24/04/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 

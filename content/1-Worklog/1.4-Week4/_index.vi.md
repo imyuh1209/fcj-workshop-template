@@ -23,7 +23,7 @@ pre: " <b> 1.4. </b> "
 | 3   | - Tìm hiểu VM Import/Export <br> - AWS Database Migration Service (DMS) <br> - Schema Conversion Tool (SCT)    | 12/05/2026   | 12/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | 4   | - Tìm hiểu AWS Elastic Disaster Recovery <br> - Các giải pháp dịch chuyển và phục hồi hệ thống                 | 13/05/2026   | 13/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | 5   | - Tìm hiểu kiến trúc hệ thống cloud <br> - Kết hợp các dịch vụ AWS trong ứng dụng thực tế                      | 14/05/2026   | 14/05/2026      | https://cloudjourney.awsstudygroup.com/ |
-| 6   | - Tìm hiểu IAM Role <br> - Giám sát tài nguyên với Amazon CloudWatch <br> - Tổng hợp kiến thức tuần            | 15/05/2026   | 15/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 6   | - Tìm hiểu IAM Role <br> - Giám sát tài nguyên với Amazon CloudWatch <br> - Cập nhật tiến độ công việc         | 15/05/2026   | 15/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 

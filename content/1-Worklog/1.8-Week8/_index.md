@@ -23,7 +23,7 @@ pre: " <b> 1.8. </b> "
 | Tue | - Test, fix issues, and improve the user experience of the system                    | 09/06/2026 | 09/06/2026      |           |
 | Wed | - Finalize the deployment architecture <br> - Update the system architecture diagram | 10/06/2026 | 10/06/2026      |           |
 | Thu | - Complete the workshop documentation <br> - Add screenshots and user guides         | 11/06/2026 | 11/06/2026      |           |
-| Fri | - Review project progress <br> - Complete the weekly report                          | 12/06/2026 | 12/06/2026      |           |
+| Fri | - Review project progress <br> - Complete the weekly report <br> - Update work progress | 12/06/2026 | 12/06/2026      |           |
 
 ---
 

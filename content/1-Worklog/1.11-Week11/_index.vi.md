@@ -23,7 +23,7 @@ pre: " <b> 1.11. </b> "
 | 3   | - Rà soát các chức năng <br> - Kiểm thử toàn bộ hệ thống                       | 30/06/2026   | 30/06/2026      |                |
 | 4   | - Xử lý các lỗi còn tồn đọng <br> - Kiểm tra lại các chức năng                 | 01/07/2026   | 01/07/2026      |                |
 | 5   | - Hoàn thiện các chức năng cuối cùng <br> - Chuẩn bị deploy sản phẩm           | 02/07/2026   | 02/07/2026      |                |
-| 6   | - Deploy sản phẩm <br> - Kiểm tra hoạt động sau khi triển khai                 | 03/07/2026   | 03/07/2026      |                |
+| 6   | - Deploy sản phẩm <br> - Kiểm tra hoạt động sau khi triển khai <br> - Cập nhật tiến độ công việc | 03/07/2026   | 03/07/2026      |                |
 
 ---
 

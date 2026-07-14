@@ -24,7 +24,7 @@ pre: " <b> 1.6. </b> "
 | Wed | - Update project documentation <br> - Improve the system architecture                                                                                                             | 27/05/2026 | 27/05/2026      |           |
 | Thu | - Continue project development <br> - Test completed features                                                                                                                     | 28/05/2026 | 28/05/2026      |           |
 | Fri | - Review project progress <br> - Prepare the weekly report                                                                                                                        | 29/05/2026 | 29/05/2026      |           |
-| Sat | - Attend the First Cloud Journey meeting <br> - Learn about new technologies and study experiences <br> - Discuss project-related issues <br> - Explore AWS Cloud Quest and Floci | 30/05/2026 | 30/05/2026      |           |
+| Sat | - Attend the First Cloud Journey meeting <br> - Learn about new technologies and study experiences <br> - Discuss project-related issues <br> - Explore AWS Cloud Quest and Floci <br> - Update work progress | 30/05/2026 | 30/05/2026      |           |
 
 ---
 

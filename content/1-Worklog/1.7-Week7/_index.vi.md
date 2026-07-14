@@ -23,7 +23,7 @@ pre: " <b> 1.7. </b> "
 | 3   | - Tiếp tục phát triển project nhóm <br> - Hoàn thiện các chức năng được phân công                                                                                                                                                   | 02/06/2026   | 02/06/2026      |                |
 | 4   | - Kiểm tra, sửa lỗi và cập nhật mã nguồn <br> - Đồng bộ tiến độ với các thành viên                                                                                                                                                  | 03/06/2026   | 03/06/2026      |                |
 | 6   | - Cập nhật tài liệu workshop <br> - Tổng hợp tiến độ và chuẩn bị báo cáo                                                                                                                                                            | 05/06/2026   | 05/06/2026      |                |
-| 7   | - Tham gia meeting First Cloud Journey <br> - Docker <br> - WAF kết hợp Machine Learning trong phát hiện tấn công mạng <br> - Lắng nghe về Godot Engine <br> - Lắng nghe chia sẻ hành trình từ IT Helpdesk đến System Administrator | 06/06/2026   | 06/06/2026      |                |
+| 7   | - Tham gia meeting First Cloud Journey <br> - Docker <br> - WAF kết hợp Machine Learning trong phát hiện tấn công mạng <br> - Lắng nghe về Godot Engine <br> - Lắng nghe chia sẻ hành trình từ IT Helpdesk đến System Administrator <br> - Cập nhật tiến độ công việc | 06/06/2026   | 06/06/2026      |                |
 
 ---
 

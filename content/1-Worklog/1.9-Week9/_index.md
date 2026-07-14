@@ -22,8 +22,8 @@ pre: " <b> 1.9. </b> "
 | Mon | - Perform end-to-end system testing <br> - Record identified issues                    | 15/06/2026 | 15/06/2026      |           |
 | Tue | - Fix issues <br> - Optimize system performance                                        | 16/06/2026 | 16/06/2026      |           |
 | Wed | - Finalize the deployment architecture on AWS <br> - Review AWS service configurations | 17/06/2026 | 17/06/2026      |           |
-| Thu | - Update the technical documentation <br> - Complete the workshop documentation        | 18/06/2026 | 18/06/2026      |           |
-| Fri | - Review project progress <br> - Prepare the presentation materials                    | 19/06/2026 | 19/06/2026      |           |
+| Thu | - Update the technical documentation <br> - Update the workshop documentation          | 18/06/2026 | 18/06/2026      |           |
+| Fri | - Review project progress <br> - Update work progress                                  | 19/06/2026 | 19/06/2026      |           |
 
 ---
 

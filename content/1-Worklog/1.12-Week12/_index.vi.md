@@ -22,7 +22,7 @@ pre: " <b> 1.12. </b> "
 | 3   | - Hoàn thiện tài liệu workshop <br> - Rà soát nội dung và hình ảnh minh họa                                | 07/07/2026   | 07/07/2026      |                |
 | 4   | - Hoàn thiện Template báo cáo First Cloud Journey (FCAJ) <br> - Kiểm tra và cập nhật nội dung theo yêu cầu | 08/07/2026   | 08/07/2026      |                |
 | 5   | - Rà soát báo cáo, tài liệu workshop và hồ sơ thực tập <br> - Chỉnh sửa các nội dung còn thiếu             | 09/07/2026   | 09/07/2026      |                |
-| 6   | - Hoàn thiện và nộp báo cáo thực tập <br> - Hoàn tất các hồ sơ kết thúc chương trình thực tập              | 10/07/2026   | 10/07/2026      |                |
+| 6   | - Hoàn thiện và nộp báo cáo thực tập <br> - Hoàn tất các hồ sơ cho chương trình thực tập                   | 10/07/2026   | 10/07/2026      |                |
 
 ---
 

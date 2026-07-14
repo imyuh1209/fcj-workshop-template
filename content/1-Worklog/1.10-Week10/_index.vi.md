@@ -17,13 +17,13 @@ pre: " <b> 1.10. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc                                                       | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------------------------------------------------------------- | ------------ | --------------- | -------------- |
-| 2   | - Hoàn thiện các chức năng còn lại của project                  | 22/06/2026   | 22/06/2026      |                |
-| 3   | - Kiểm thử tổng thể <br> - Đánh giá độ ổn định của hệ thống     | 23/06/2026   | 23/06/2026      |                |
-| 4   | - Tối ưu tài nguyên <br> - Rà soát bảo mật và cấu hình hệ thống | 24/06/2026   | 24/06/2026      |                |
-| 5   | - Hoàn thiện tài liệu dự án <br> - Cập nhật sơ đồ kiến trúc     | 25/06/2026   | 25/06/2026      |                |
-| 6   | - Chuẩn bị nội dung trình bày <br> - Tổng hợp tiến độ dự án     | 26/06/2026   | 26/06/2026      |                |
+| Thứ | Công việc                                                                                              | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------------------------------------------------------------------------------------------------ | ------------ | --------------- | -------------- |
+| 2   | - Hoàn thiện các chức năng còn lại của project                                                         | 22/06/2026   | 22/06/2026      |                |
+| 3   | - Kiểm thử tổng thể <br> - Đánh giá độ ổn định của hệ thống                                            | 23/06/2026   | 23/06/2026      |                |
+| 4   | - Tối ưu tài nguyên <br> - Rà soát bảo mật và cấu hình hệ thống                                        | 24/06/2026   | 24/06/2026      |                |
+| 5   | - Hoàn thiện tài liệu dự án <br> - Cập nhật sơ đồ kiến trúc                                            | 25/06/2026   | 25/06/2026      |                |
+| 6   | - Chuẩn bị nội dung triển khai lên AWS <br> - Tổng hợp tiến độ dự án <br> - Cập nhật tiến độ công việc | 26/06/2026   | 26/06/2026      |                |
 
 ---
 

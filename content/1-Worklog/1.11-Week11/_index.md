@@ -23,7 +23,7 @@ pre: " <b> 1.11. </b> "
 | Tue | - Review project features <br> - Perform full system testing                        | 30/06/2026 | 30/06/2026      |           |
 | Wed | - Resolve the remaining issues <br> - Re-test completed features                    | 01/07/2026 | 01/07/2026      |           |
 | Thu | - Complete the final project features <br> - Prepare the application for deployment | 02/07/2026 | 02/07/2026      |           |
-| Fri | - Deploy the application <br> - Verify the system after deployment                  | 03/07/2026 | 03/07/2026      |           |
+| Fri | - Deploy the application <br> - Verify the system after deployment <br> - Update work progress | 03/07/2026 | 03/07/2026      |           |
 
 ---
 

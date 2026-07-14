@@ -22,8 +22,8 @@ pre: " <b> 1.9. </b> "
 | 2   | - Kiểm thử luồng hoạt động end-to-end <br> - Ghi nhận các lỗi phát sinh        | 15/06/2026   | 15/06/2026      |                |
 | 3   | - Xử lý lỗi và tối ưu hiệu năng hệ thống                                       | 16/06/2026   | 16/06/2026      |                |
 | 4   | - Hoàn thiện kiến trúc triển khai trên AWS <br> - Rà soát cấu hình các dịch vụ | 17/06/2026   | 17/06/2026      |                |
-| 5   | - Cập nhật tài liệu kỹ thuật <br> - Hoàn thiện tài liệu workshop               | 18/06/2026   | 18/06/2026      |                |
-| 6   | - Tổng hợp tiến độ <br> - Chuẩn bị nội dung báo cáo                            | 19/06/2026   | 19/06/2026      |                |
+| 5   | - Cập nhật tài liệu kỹ thuật <br> - Cập nhật tài liệu workshop                 | 18/06/2026   | 18/06/2026      |                |
+| 6   | - Tổng hợp tiến độ <br> - Cập nhật tiến độ công việc                           | 19/06/2026   | 19/06/2026      |                |
 
 ---
 

@@ -23,7 +23,7 @@ pre: " <b> 1.4. </b> "
 | Tuesday   | - Learn AWS VM Import/Export <br> - Learn AWS Database Migration Service (DMS) <br> - Learn AWS Schema Conversion Tool (SCT)           | 12/05/2026 | 12/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | Wednesday | - Learn AWS Elastic Disaster Recovery <br> - Explore migration and disaster recovery solutions                                         | 13/05/2026 | 13/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 | Thursday  | - Learn cloud architecture <br> - Explore how AWS services work together in real-world applications                                    | 14/05/2026 | 14/05/2026      | https://cloudjourney.awsstudygroup.com/ |
-| Friday    | - Learn IAM Roles <br> - Monitor AWS resources using Amazon CloudWatch <br> - Review weekly topics                                     | 15/05/2026 | 15/05/2026      | https://cloudjourney.awsstudygroup.com/ |
+| Friday    | - Learn IAM Roles <br> - Monitor AWS resources using Amazon CloudWatch <br> - Update work progress                                     | 15/05/2026 | 15/05/2026      | https://cloudjourney.awsstudygroup.com/ |
 
 ---
 

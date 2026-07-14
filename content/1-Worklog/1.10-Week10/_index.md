@@ -17,13 +17,13 @@ pre: " <b> 1.10. </b> "
 
 ### Tasks Completed This Week:
 
-| Day | Task                                                                               | Start Date | Completion Date | Reference |
-| --- | ---------------------------------------------------------------------------------- | ---------- | --------------- | --------- |
-| Mon | - Complete the remaining project features                                          | 22/06/2026 | 22/06/2026      |           |
-| Tue | - Perform final system testing <br> - Evaluate system stability                    | 23/06/2026 | 23/06/2026      |           |
-| Wed | - Optimize resource usage <br> - Review system security and configurations         | 24/06/2026 | 24/06/2026      |           |
-| Thu | - Finalize the project documentation <br> - Update the system architecture diagram | 25/06/2026 | 25/06/2026      |           |
-| Fri | - Prepare the presentation materials <br> - Review overall project progress        | 26/06/2026 | 26/06/2026      |           |
+| Day | Task                                                                                                                      | Start Date | Completion Date | Reference |
+| --- | ------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------- |
+| Mon | - Complete the remaining project features                                                                                 | 22/06/2026 | 22/06/2026      |           |
+| Tue | - Perform final system testing <br> - Evaluate system stability                                                           | 23/06/2026 | 23/06/2026      |           |
+| Wed | - Optimize resource usage <br> - Review system security and configurations                                                | 24/06/2026 | 24/06/2026      |           |
+| Thu | - Finalize the project documentation <br> - Update the system architecture diagram                                        | 25/06/2026 | 25/06/2026      |           |
+| Fri | - Prepare the presentation materials for deploy on AWS <br> - Review overall project progress <br> - Update work progress | 26/06/2026 | 26/06/2026      |           |
 
 ---
 

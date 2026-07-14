@@ -24,7 +24,7 @@ pre: " <b> 1.6. </b> "
 | 4   | - Cập nhật tài liệu dự án <br> - Hoàn thiện kiến trúc hệ thống                                                                                                                  | 27/05/2026   | 27/05/2026      |                |
 | 5   | - Tiếp tục phát triển project <br> - Kiểm thử các chức năng đã hoàn thành                                                                                                       | 28/05/2026   | 28/05/2026      |                |
 | 6   | - Tổng hợp tiến độ dự án <br> - Chuẩn bị nội dung báo cáo tuần                                                                                                                  | 29/05/2026   | 29/05/2026      |                |
-| 7   | - Tham gia meeting First Cloud Journey <br> - Lắng nghe chia sẻ về công nghệ, kinh nghiệm học tập <br> - Trao đổi các vấn đề của dự án <br> - Tìm hiểu AWS Cloud Quest và Floci | 30/05/2026   | 30/05/2026      |                |
+| 7   | - Tham gia meeting First Cloud Journey <br> - Lắng nghe chia sẻ về công nghệ, kinh nghiệm học tập <br> - Trao đổi các vấn đề của dự án <br> - Tìm hiểu AWS Cloud Quest và Floci <br> - Cập nhật tiến độ công việc | 30/05/2026   | 30/05/2026      |                |
 
 ---
 
