@@ -10,6 +10,8 @@ pre: " <b> 6. </b> "
 
 Trong quá trình thực tập tại **AWS Study Group Vietnam (First Cloud Journey - FCJ)**, em đã tham gia phát triển và xây dựng các chức năng cho dự án **Aura Academic** – một nền tảng quản lý học tập, thi cử và đánh giá năng lực trực tuyến hiện đại.
 
+🌐 **Website dự án:** [https://auraacademic.site/](https://auraacademic.site/)
+
 Dự án được chia thành các phần chức năng chuyên biệt dành cho từng nhóm đối tượng người dùng (Học viên/User, Quản trị viên/Admin, và Giáo viên/Teacher).
 
 ---

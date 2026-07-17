@@ -10,6 +10,8 @@ pre: " <b> 6. </b> "
 
 During my internship at **AWS Study Group Vietnam (First Cloud Journey - FCJ)**, I contributed to building and developing **Aura Academic** – a comprehensive online learning, examination, and assessment management platform.
 
+🌐 **Project Website:** [https://auraacademic.site/](https://auraacademic.site/)
+
 The project is structured into specialized functional modules tailored for each user group (Students/User, Administrators/Admin, and Teachers/Teacher).
 
 ---
