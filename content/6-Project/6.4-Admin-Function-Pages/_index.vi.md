@@ -6,13 +6,15 @@ chapter : false
 pre : " <b> 6.4. </b> "
 ---
 
-# Dashboard Quản trị, Thống kê Báo cáo & Quản lý Người dùng
+# Dashboard Quản trị, Thống kê & Quản lý Người dùng
 
-Phần này giới thiệu không gian quản trị tổng thể (Admin Dashboard), hệ thống thống kê báo cáo chuyên sâu và công cụ quản lý tài khoản người dùng trên **Aura Academic**.
+{{% notice note %}}
+Phần này trình bày không gian quản trị tổng thể (Admin Dashboard), hệ thống thống kê báo cáo chuyên sâu và công cụ quản lý tài khoản người dùng trên **Aura Academic**.
+{{% /notice %}}
 
 ---
 
-### 1. Dashboard Tổng quan Quản trị
+## 1. Dashboard Tổng quan Quản trị
 
 <div align="center">
 
@@ -28,7 +30,7 @@ Phần này giới thiệu không gian quản trị tổng thể (Admin Dashboar
 
 ---
 
-### 2. Thống kê & Báo cáo Chuyên sâu
+## 2. Thống kê & Báo cáo Chuyên sâu
 
 <div align="center">
 
@@ -44,7 +46,7 @@ Phần này giới thiệu không gian quản trị tổng thể (Admin Dashboar
 
 ---
 
-### 3. Trung tâm Hỗ trợ Trực tuyến (Support Center)
+## 3. Trung tâm Hỗ trợ Trực tuyến (Support Center)
 
 <div align="center">
 
@@ -60,7 +62,7 @@ Phần này giới thiệu không gian quản trị tổng thể (Admin Dashboar
 
 ---
 
-### 4. Quản lý Danh sách Người dùng (User Management)
+## 4. Quản lý Danh sách Người dùng (User Management)
 
 <div align="center">
 
@@ -76,7 +78,7 @@ Phần này giới thiệu không gian quản trị tổng thể (Admin Dashboar
 
 ---
 
-### 5. Xác thực Tài khoản Giáo viên
+## 5. Xác thực Tài khoản Giáo viên
 
 <div align="center">
 
@@ -92,7 +94,7 @@ Phần này giới thiệu không gian quản trị tổng thể (Admin Dashboar
 
 ---
 
-### 6. Quản lý Phân quyền Hệ thống (Role & Permissions)
+## 6. Quản lý Phân quyền Hệ thống (Role & Permissions)
 
 <div align="center">
 

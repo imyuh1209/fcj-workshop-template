@@ -6,13 +6,15 @@ chapter : false
 pre : " <b> 6.3. </b> "
 ---
 
-# Ngân hàng đề, Tài liệu học tập, Thông báo & Hồ sơ cá nhân
+# Ngân hàng Đề thi, Tài liệu, Thông báo & Hồ sơ cá nhân
 
-Phần này giới thiệu các công cụ hỗ trợ ôn luyện tự do, tài liệu học tập và quản lý tài khoản cá nhân dành cho học viên trên nền tảng **Aura Academic**.
+{{% notice note %}}
+Phần này trình bày các công cụ hỗ trợ ôn luyện tự do, thư viện tài liệu số, hệ thống thông báo và quản lý tài khoản cá nhân dành cho học viên trên nền tảng **Aura Academic**.
+{{% /notice %}}
 
 ---
 
-### 1. Ngân hàng Đề thi & Ôn luyện tự do
+## 1. Ngân hàng Đề thi & Ôn luyện tự do
 
 <div align="center">
 
@@ -29,7 +31,7 @@ Phần này giới thiệu các công cụ hỗ trợ ôn luyện tự do, tài 
 
 ---
 
-### 2. Thư viện Tài liệu học tập
+## 2. Thư viện Tài liệu học tập
 
 <div align="center">
 
@@ -45,7 +47,7 @@ Phần này giới thiệu các công cụ hỗ trợ ôn luyện tự do, tài 
 
 ---
 
-### 3. Trung tâm Thông báo hệ thống
+## 3. Trung tâm Thông báo Hệ thống
 
 <div align="center">
 
@@ -61,7 +63,7 @@ Phần này giới thiệu các công cụ hỗ trợ ôn luyện tự do, tài 
 
 ---
 
-### 4. Quản lý Hồ sơ cá nhân (Profile)
+## 4. Quản lý Hồ sơ cá nhân (Profile)
 
 <div align="center">
 

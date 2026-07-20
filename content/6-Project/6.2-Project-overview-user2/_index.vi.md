@@ -6,13 +6,15 @@ chapter : false
 pre : " <b> 6.2. </b> "
 ---
 
-# Quản lý Kết quả học tập & Không gian Lớp học
+# Kết quả Học tập & Không gian Lớp học
 
-Phần này giới thiệu các tính năng theo dõi lịch sử kết quả thi và không gian tương tác trong từng lớp học của học viên trên nền tảng **Aura Academic**.
+{{% notice note %}}
+Phần này trình bày các tính năng theo dõi lịch sử kết quả thi và không gian tương tác trong từng lớp học của học viên trên nền tảng **Aura Academic**.
+{{% /notice %}}
 
 ---
 
-### 1. Trang Quản lý Kết quả thi & Lịch sử học tập
+## 1. Trang Quản lý Kết quả thi & Lịch sử học tập
 
 <div align="center">
 
@@ -29,7 +31,7 @@ Phần này giới thiệu các tính năng theo dõi lịch sử kết quả th
 
 ---
 
-### 2. Tổng quan & Quản lý Lớp học
+## 2. Tổng quan & Quản lý Lớp học
 
 <div align="center">
 
@@ -43,7 +45,7 @@ Phần này giới thiệu các tính năng theo dõi lịch sử kết quả th
 
 ![Hình 5.3: Giao diện trang thành viên lớp học của hệ thống](image-2.png)
 
-**Hình 5.3.  Giao diện trang thành viên lớp học của hệ thống**
+**Hình 5.3. Giao diện trang thành viên lớp học của hệ thống**
 
 </div>
 
@@ -53,13 +55,13 @@ Phần này giới thiệu các tính năng theo dõi lịch sử kết quả th
 
 ---
 
-### 3. Bài tập, Bảng điểm & Thảo luận trong Lớp học
+## 3. Bài tập, Bảng điểm & Thảo luận trong Lớp học
 
 <div align="center">
 
 ![Hình 5.4: Giao diện phần bài thi được giao cho lớp học của hệ thống](image-3.png)
 
-**Hình 5.4.  Giao diện phần bài thi được giao cho lớp học của hệ thống**
+**Hình 5.4. Giao diện phần bài thi được giao cho lớp học của hệ thống**
 
 </div>
 
@@ -67,7 +69,7 @@ Phần này giới thiệu các tính năng theo dõi lịch sử kết quả th
 
 ![Hình 5.5: Giao diện phần bảng điểm của lớp học của hệ thống](image-4.png)
 
-**Hình 5.5.  Giao diện phần bảng điểm của lớp học của hệ thống**
+**Hình 5.5. Giao diện phần bảng điểm của lớp học của hệ thống**
 
 </div>
 
@@ -75,7 +77,7 @@ Phần này giới thiệu các tính năng theo dõi lịch sử kết quả th
 
 ![Hình 5.6: Giao diện phần thảo luận của lớp học của hệ thống](image-5.png)
 
-**Hình 5.6.  Giao diện phần thảo luận của lớp học của hệ thống**
+**Hình 5.6. Giao diện phần thảo luận của lớp học của hệ thống**
 
 </div>
 

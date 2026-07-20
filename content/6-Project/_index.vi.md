@@ -6,32 +6,37 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-# Tổng quan Dự án (Project Overview)
+# 🚀 Aura Academic
 
-Trong quá trình thực tập tại **AWS Study Group Vietnam (First Cloud Journey - FCJ)**, em đã tham gia phát triển và xây dựng các chức năng cho dự án **Aura Academic** – một nền tảng quản lý học tập, thi cử và đánh giá năng lực trực tuyến hiện đại.
-
-🌐 **Website dự án:** [https://auraacademic.site/](https://auraacademic.site/)
-
-Dự án được chia thành các phần chức năng chuyên biệt dành cho từng nhóm đối tượng người dùng (Học viên/User, Quản trị viên/Admin, và Giáo viên/Teacher).
+## Nền tảng Quản lý Học tập & Thi cử Hiện đại
 
 ---
 
-### 📑 Danh sách chi tiết các phần của dự án:
+**🌐 Website:** [Aura Academic](https://auraacademic.site/)
 
-1. **[6.1. Tổng quan dự án và các chức năng của User phần 1](6.1-Project-overview-user/)**  
-   *Giới thiệu chung về giao diện Dashboard, tổng quan hệ thống và trải nghiệm người dùng cơ bản.*
+### 🎯 Điểm nổi bật của hệ thống
 
-2. **[6.2. Tổng quan dự án và các chức năng của User phần 2](6.2-Project-overview-user2/)**  
-   *Chi tiết giao diện trang kết quả thi, phòng thi và trang quản lý lớp học dành cho học viên.*
+- **Kiến trúc Cloud-Native:** Tích hợp các dịch vụ cốt lõi của AWS (EC2, S3, CloudFront, ALB) để đảm bảo tính sẵn sàng cao và khả năng mở rộng.
+- **Trải nghiệm mượt mà:** Giao diện tối ưu, hiện đại với tính năng phân quyền chặt chẽ và chuyên biệt.
+- **Tính năng đa dạng:** Đáp ứng đầy đủ quy trình học tập khép kín từ việc tạo lớp, giao bài tập, thi trực tuyến (có chống gian lận) cho đến báo cáo kết quả chi tiết.
 
-3. **[6.3. Tổng quan dự án và các chức năng dành cho Người dùng phần 3](6.3-Project-overview-user3/)**  
-   *Giao diện trang Ngân hàng đề thi, tài liệu học tập, hệ thống thông báo và quản lý Hồ sơ cá nhân.*
+---
 
-4. **[6.4. Các trang chức năng của Admin phần 1](6.4-Admin-Function-Pages/)**  
-   *Tổng quan Dashboard thống kê báo cáo toàn diện và quản lý danh sách lớp học khi đăng nhập bằng tài khoản Admin.*
+### 📑 Khám phá các Phân hệ Chức năng
 
-5. **[6.5. Các trang chức năng của Admin phần 2](6.5-Admin-Function-Pages2/)**  
-   *Giao diện Quản trị kỳ thi, xem báo cáo chi tiết, và công cụ biên soạn đề thi nâng cao cho Admin.*
+Hệ thống được thiết kế tối ưu hóa trải nghiệm riêng biệt cho 3 nhóm người dùng chính. Dưới đây là tài liệu chi tiết về các chức năng của từng nhóm:
 
-6. **[6.6. Các trang chức năng của Giáo viên](6.6-Teacher-Function-Pages/)**  
-   *Tổng quan Dashboard dành riêng cho Giáo viên, công cụ quản lý lớp, biên soạn đề thi và chấm điểm.*
+#### 🧑‍🎓 Phân hệ Học viên (User)
+
+- 🎓 **[Phần 1: Dashboard & Tổng quan](6.1-Project-overview-user/)** - _Trải nghiệm cơ bản của người dùng._
+- 📈 **[Phần 2: Phòng thi & Kết quả](6.2-Project-overview-user2/)** - _Làm bài thi trực tuyến và tra cứu bảng điểm._
+- 🔔 **[Phần 3: Ngân hàng Đề thi & Tiện ích](6.3-Project-overview-user3/)** - _Tài liệu, thông báo và hồ sơ cá nhân._
+
+#### 🛠️ Phân hệ Quản trị viên (Admin)
+
+- ⚙️ **[Phần 1: Báo cáo & Thống kê](6.4-Admin-Function-Pages/)** - _Dashboard toàn diện và danh sách lớp học._
+- 🛡️ **[Phần 2: Quản trị Kỳ thi](6.5-Admin-Function-Pages2/)** - _Biên soạn đề thi nâng cao và quản lý nội dung._
+
+#### 🧑‍🏫 Phân hệ Giáo viên (Teacher)
+
+- 🏫 **[Các chức năng của Giáo viên](6.6-Teacher-Function-Pages/)** - _Dashboard chuyên biệt, quản lý lớp, chấm điểm và đánh giá năng lực học viên._

@@ -6,13 +6,15 @@ chapter : false
 pre : " <b> 6.1. </b> "
 ---
 
-# Dashboard Overview & Online Examination Workflow
+# Dashboard & Online Examination Workflow
 
-This section introduces the core Dashboard interface and the online examination participation experience for students on the **Aura Academic** platform.
+{{% notice note %}}
+This section presents the core Dashboard interface and the complete online examination experience for students on the **Aura Academic** platform — covering every step from accessing the exam room, AI-powered proctoring, to completing an exam.
+{{% /notice %}}
 
 ---
 
-### 1. Dashboard Interface
+## 1. Dashboard Interface
 
 <div align="center">
 
@@ -29,7 +31,7 @@ This section introduces the core Dashboard interface and the online examination 
 
 ---
 
-### 2. Online Examination Page & Room Code Authentication
+## 2. Online Examination Page & Room Code Authentication
 
 <div align="center">
 
@@ -61,7 +63,7 @@ This section introduces the core Dashboard interface and the online examination 
 
 ---
 
-### 3. Exam Taking Experience & Submission
+## 3. Exam Taking Experience & Submission
 
 <div align="center">
 

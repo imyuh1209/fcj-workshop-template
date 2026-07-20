@@ -6,32 +6,37 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-# Project Overview (Aura Academic)
+# 🚀 Aura Academic
 
-During my internship at **AWS Study Group Vietnam (First Cloud Journey - FCJ)**, I contributed to building and developing **Aura Academic** – a comprehensive online learning, examination, and assessment management platform.
-
-🌐 **Project Website:** [https://auraacademic.site/](https://auraacademic.site/)
-
-The project is structured into specialized functional modules tailored for each user group (Students/User, Administrators/Admin, and Teachers/Teacher).
+## Modern Learning & Examination Management Platform
 
 ---
 
-### 📑 Project Modules List:
+**🌐 Website:** [Aura Academic](https://auraacademic.site/)
 
-1. **[6.1. Project Overview & User Functions Part 1](6.1-Project-overview-user/)**  
-   *General introduction to Dashboard UI, system overview, and basic user experience.*
+### 🎯 Key Highlights
 
-2. **[6.2. Project Overview & User Functions Part 2](6.2-Project-overview-user2/)**  
-   *Detailed UI of exam result page, exam room, and classroom management for students.*
+- **Cloud-Native Architecture:** Integrates core AWS services (EC2, S3, CloudFront, ALB) to ensure high availability and scalability.
+- **Seamless Experience:** Modern, optimized user interface with strict and specialized role-based access control.
+- **Diverse Features:** Fulfills a complete educational workflow, from creating classes and assigning homework to conducting online exams (with anti-cheat measures) and generating detailed reports.
 
-3. **[6.3. Project Overview & User Functions Part 3](6.3-Project-overview-user3/)**  
-   *Exam question bank UI, learning materials, notification system, and personal profile management.*
+---
 
-4. **[6.4. Admin Function Pages Part 1](6.4-Admin-Function-Pages/)**  
-   *Comprehensive statistical reporting Dashboard overview and classroom list management for Admins.*
+### 📑 Explore Functional Modules
 
-5. **[6.5. Admin Function Pages Part 2](6.5-Admin-Function-Pages2/)**  
-   *Exam administration, detailed reports view, and advanced question compilation tools for Admin.*
+The system is designed to provide an optimized experience for three main user groups. Below is the detailed documentation for the features of each group:
 
-6. **[6.6. Teacher Function Pages](6.6-Teacher-Function-Pages/)**  
-   *Teacher-specific Dashboard overview, classroom management, test compilation, and grading tools.*
+#### 🧑‍🎓 Student Module (User)
+
+- 🎓 **[Part 1: Dashboard & Overview](6.1-Project-overview-user/)** - _Basic user experience and dashboard._
+- 📈 **[Part 2: Exam Room & Results](6.2-Project-overview-user2/)** - _Taking online exams and viewing scorecards._
+- 🔔 **[Part 3: Question Bank & Utilities](6.3-Project-overview-user3/)** - _Study materials, notifications, and personal profile._
+
+#### 🛠️ Administrator Module (Admin)
+
+- ⚙️ **[Part 1: Reports & Statistics](6.4-Admin-Function-Pages/)** - _Comprehensive Dashboard and classroom lists._
+- 🛡️ **[Part 2: Exam Administration](6.5-Admin-Function-Pages2/)** - _Advanced question compilation and content management._
+
+#### 🧑‍🏫 Teacher Module (Teacher)
+
+- 🏫 **[Teacher Functions](6.6-Teacher-Function-Pages/)** - _Specialized dashboard, classroom management, grading, and student assessment._

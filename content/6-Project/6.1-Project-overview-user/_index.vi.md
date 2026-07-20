@@ -6,13 +6,15 @@ chapter : false
 pre : " <b> 6.1. </b> "
 ---
 
-# Tổng quan Giao diện Dashboard & Luồng Thi trực tuyến
+# Dashboard & Luồng Thi trực tuyến
 
-Phần này giới thiệu giao diện chính (Dashboard) và trải nghiệm tham gia thi trực tuyến dành cho học viên trên nền tảng **Aura Academic**.
+{{% notice note %}}
+Phần này trình bày giao diện chính (Dashboard) và toàn bộ trải nghiệm tham gia thi trực tuyến dành cho học viên trên nền tảng **Aura Academic** — bao gồm các bước từ truy cập phòng thi, giám sát AI, cho đến hoàn thành bài thi.
+{{% /notice %}}
 
 ---
 
-### 1. Giao diện Bảng điều khiển (Dashboard)
+## 1. Giao diện Bảng điều khiển (Dashboard)
 
 <div align="center">
 
@@ -22,14 +24,14 @@ Phần này giới thiệu giao diện chính (Dashboard) và trải nghiệm th
 
 </div>
 
-**Điểm nổi bật của Dashboard:**
+**Điểm nổi bật:**
 - **Thống kê tổng quan (Stats Cards):** Hiển thị nhanh Điểm trung bình, Số bài thi đã nộp, Lớp đang theo học và Lượt luyện tập.
 - **Truy cập nhanh phòng thi:** Ô nhập mã bài thi (ví dụ: `AURA25`) cho phép học viên xác thực và vào thi ngay lập tức mà không cần qua nhiều bước tìm kiếm.
 - **Dữ liệu học tập tổng hợp:** Theo dõi kết quả các bài thi gần đây, tiến độ hoàn thành và danh sách lớp học đang tham gia.
 
 ---
 
-### 2. Trang Thi trực tuyến & Xác thực mã phòng thi
+## 2. Trang Thi trực tuyến & Xác thực mã phòng thi
 
 <div align="center">
 
@@ -61,7 +63,7 @@ Phần này giới thiệu giao diện chính (Dashboard) và trải nghiệm th
 
 ---
 
-### 3. Trải nghiệm Làm bài thi & Nộp bài
+## 3. Trải nghiệm Làm bài thi & Nộp bài
 
 <div align="center">
 

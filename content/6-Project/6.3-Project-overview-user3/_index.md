@@ -8,11 +8,13 @@ pre : " <b> 6.3. </b> "
 
 # Question Bank, Study Materials, Notifications & Profile
 
-This section introduces the self-practice question repository, digital library, notification system, and account management tools for students on **Aura Academic**.
+{{% notice note %}}
+This section presents the self-practice question repository, digital library, notification system, and account management tools for students on **Aura Academic**.
+{{% /notice %}}
 
 ---
 
-### 1. Question Bank & Self-Practice Repository
+## 1. Question Bank & Self-Practice Repository
 
 <div align="center">
 
@@ -29,7 +31,7 @@ This section introduces the self-practice question repository, digital library, 
 
 ---
 
-### 2. Study Materials Library
+## 2. Study Materials Library
 
 <div align="center">
 
@@ -45,7 +47,7 @@ This section introduces the self-practice question repository, digital library, 
 
 ---
 
-### 3. System Notification Center
+## 3. System Notification Center
 
 <div align="center">
 
@@ -61,7 +63,7 @@ This section introduces the self-practice question repository, digital library, 
 
 ---
 
-### 4. Personal Profile Management
+## 4. Personal Profile Management
 
 <div align="center">
 

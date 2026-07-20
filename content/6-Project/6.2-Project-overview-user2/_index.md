@@ -6,13 +6,15 @@ chapter : false
 pre : " <b> 6.2. </b> "
 ---
 
-# Exam Results Management & Classroom Space
+# Exam Results & Classroom Space
 
-This section introduces the features for tracking examination history and interacting within individual classrooms on the **Aura Academic** platform.
+{{% notice note %}}
+This section presents the features for tracking examination history and interacting within individual classrooms on the **Aura Academic** platform.
+{{% /notice %}}
 
 ---
 
-### 1. Exam Results & Learning History
+## 1. Exam Results & Learning History
 
 <div align="center">
 
@@ -29,7 +31,7 @@ This section introduces the features for tracking examination history and intera
 
 ---
 
-### 2. Classroom Overview & Member Management
+## 2. Classroom Overview & Member Management
 
 <div align="center">
 
@@ -53,7 +55,7 @@ This section introduces the features for tracking examination history and intera
 
 ---
 
-### 3. Assignments, Gradebooks & Classroom Discussions
+## 3. Assignments, Gradebooks & Classroom Discussions
 
 <div align="center">
 
