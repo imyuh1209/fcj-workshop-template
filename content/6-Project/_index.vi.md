@@ -26,7 +26,7 @@ pre: " <b> 6. </b> "
 
 Hệ thống được thiết kế tối ưu hóa trải nghiệm riêng biệt cho 3 nhóm người dùng chính. Dưới đây là tài liệu chi tiết về các chức năng của từng nhóm:
 
-#### 🧑‍🎓 Phân hệ Học viên (User)
+#### Phân hệ Học viên (User)
 
 - **[Phần 1: Dashboard & Tổng quan](6.1-Project-overview-user/)** - _Trải nghiệm cơ bản của người dùng._
 - **[Phần 2: Phòng thi & Kết quả](6.2-Project-overview-user2/)** - _Làm bài thi trực tuyến và tra cứu bảng điểm._
